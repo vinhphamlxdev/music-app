@@ -1,8 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
-import React, { Fragment, useEffect } from "react";
+import React, { useEffect } from "react";
 import { HOME_API } from "~/api/config";
-import Container from "~/components/container/Container";
 import Top from "~/components/ListTop100";
 import SongList from "~/components/SongList/SongList";
 
@@ -15,10 +14,10 @@ const Profile = () => {
     handleFetchDataProfile();
   });
   return (
-    <Container>
+    <div className="wrapper">
       <Top></Top>
       <SongList></SongList>
-    </Container>
+    </div>
   );
 };
 

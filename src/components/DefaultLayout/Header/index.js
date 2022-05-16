@@ -1,35 +1,20 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { BiSearch } from "react-icons/bi";
-import { FcGallery } from "react-icons/fc";
+
 import { IoSettingsOutline } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
+import Search from "./Search";
 const StyledHeader = styled.div`
+  color: ${(props) => props.theme.textColor};
   &.isSticky {
     box-shadow: 0 3px 5px rgb(0 0 0 / 10%);
     background-color: ${(props) => props.theme.layoutBg};
   }
   z-index: 100;
   width: calc(100% - 240px);
-  input {
-    background-color: ${(props) => props.theme.alphaBg};
-    border-radius: 12px;
-    color: ${(props) => props.theme.textColor};
-  }
-  input::-webkit-input-placeholder {
-    color: ${(props) => props.theme.textColor};
-  }
-  input::-moz-input-placeholder {
-    color: ${(props) => props.theme.textColor};
-  }
-  .search-icon {
-    color: ${(props) => props.theme.textColor};
-    right: 6px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
+
   .btn-theme {
     background-color: ${(props) => props.theme.alphaBg};
   }
@@ -51,16 +36,7 @@ const Header = () => {
         newBgHeader ? "isSticky" : ""
       }`}
     >
-      <div className="w-[250px]  relative">
-        <input
-          className="w-full py-3 pl-3 pr-7 "
-          type="text"
-          placeholder="Search"
-        />
-        <div className="absolute search-icon">
-          <BiSearch className="text-xl cursor-pointer text-inherit"></BiSearch>
-        </div>
-      </div>
+      <Search></Search>
       <div className="flex">
         <Tippy content="Chủ đề">
           <button className="flex items-center justify-center w-10 h-10 mr-3 rounded-full cursor-pointer btn-theme ">
@@ -220,6 +196,14 @@ const Header = () => {
                 ></use>
               </g>
             </svg>
+          </button>
+        </Tippy>
+        <Tippy content="Tải lên ">
+          <button className="flex items-center justify-center w-10 h-10 mr-3 rounded-full cursor-pointer btn-theme ">
+            <input id="upload-song" className="hidden" type="file" />
+            <label htmlFor="upload-song">
+              <i className="cursor-pointer bi text-inherit bi-upload"></i>
+            </label>
           </button>
         </Tippy>
         <Tippy content="Cài đặt">

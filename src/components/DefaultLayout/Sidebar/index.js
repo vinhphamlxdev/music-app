@@ -17,13 +17,17 @@ const StyledSidebar = styled.div`
     top: calc(100% + 15px);
     height: 1px;
     width: 188px;
-    background-color: ${(props) => props.theme.textColor};
+    background-color: ${(props) => props.theme.navigationText};
     left: 50%;
     transform: translateX(-50%);
   }
 
   .sidebar-item {
-    color: ${(props) => props.theme.textColor};
+    color: ${(props) => props.theme.navigationText};
+    font-size: 13px;
+    &:hover {
+      color: ${(props) => props.theme.textItemHover};
+    }
   }
   .sidebar-inner {
     /* overflow: hidden overlay; */
@@ -43,42 +47,42 @@ const Sidebar = () => {
   return (
     <StyledSidebar className="py-10 relative top-0 left-0  flex flex-col w-[240px]">
       <div className="mb-4 sidebar-navbar-list relative after:absolute after:content=['']">
-        <div className="flex items-center px-6 py-2 text-base font-semibold cursor-pointer sidebar-item">
+        <div className="flex items-center px-6 py-2 font-semibold border-l border-transparent cursor-pointer sidebar-item">
           <BiHomeAlt className="text-xl font-semibold text-inherit"></BiHomeAlt>
           <span className="pl-3">Cá Nhân</span>
         </div>
-        <div className="flex items-center px-6 py-2 text-base font-semibold cursor-pointer sidebar-item">
+        <div className="flex items-center px-6 py-2 font-semibold border-l border-transparent cursor-pointer sidebar-item">
           <BsVinyl className="text-xl font-semibold text-inherit"></BsVinyl>
           <span className="pl-3">Khám Phá</span>
         </div>
-        <div className="flex items-center px-6 py-2 text-base font-semibold cursor-pointer sidebar-item">
+        <div className="flex items-center px-6 py-2 font-semibold border-l border-transparent cursor-pointer sidebar-item">
           <BsMusicNoteList className="text-xl font-semibold text-inherit"></BsMusicNoteList>
           <span className="pl-3">#Zingchart</span>
         </div>
-        <div className="flex items-center px-6 py-2 text-base font-semibold cursor-pointer sidebar-item">
+        <div className="flex items-center px-6 py-2 font-semibold border-l border-transparent cursor-pointer sidebar-item">
           <IoIosRadio className="text-xl font-semibold text-inherit"></IoIosRadio>
           <span className="pl-3">Radio</span>
         </div>
-        <div className="flex items-center px-6 py-2 text-base font-semibold cursor-pointer sidebar-item">
+        <div className="flex items-center px-6 py-2 font-semibold border-l border-transparent cursor-pointer sidebar-item">
           <BsFillFilePlayFill className="text-xl font-semibold text-inherit"></BsFillFilePlayFill>
           <span className="pl-3">Theo dõi</span>
         </div>
       </div>
       <div className="sidebar-inner mt-[10px]">
         <div className="mb-4 sidebar-navbar-list relative after:absolute after:content=['']">
-          <div className="flex items-center px-6 py-2 text-base font-semibold cursor-pointer sidebar-item">
+          <div className="flex items-center px-6 py-2 font-semibold border-l border-transparent cursor-pointer sidebar-item">
             <BsMusicNoteBeamed className="text-xl font-semibold text-inherit"></BsMusicNoteBeamed>
             <span className="pl-3">Nhạc Mới</span>
           </div>
-          <div className="flex items-center px-6 py-2 text-base font-semibold cursor-pointer sidebar-item">
+          <div className="flex items-center px-6 py-2 font-semibold border-l border-transparent cursor-pointer sidebar-item">
             <BsUiChecksGrid className="text-xl font-semibold text-inherit"></BsUiChecksGrid>
             <span className="pl-3">Thể Loại</span>
           </div>
-          <div className="flex items-center px-6 py-2 text-base font-semibold cursor-pointer sidebar-item">
+          <div className="flex items-center px-6 py-2 font-semibold border-l border-transparent cursor-pointer sidebar-item">
             <BsStar className="text-xl font-semibold text-inherit"></BsStar>
             <span className="pl-3">Top 100</span>
           </div>
-          <div className="flex items-center px-6 py-2 text-base font-semibold cursor-pointer sidebar-item">
+          <div className="flex items-center px-6 py-2 font-semibold border-l border-transparent cursor-pointer sidebar-item">
             <SiYoutubemusic className="text-xl font-semibold text-inherit"></SiYoutubemusic>
             <span className="pl-3">Mv</span>
           </div>

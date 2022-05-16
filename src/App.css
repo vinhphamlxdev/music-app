@@ -50,6 +50,7 @@ img {
 i {
   display: block;
   line-height: 0px;
+  font-size: inherit;
 }
 h3 {
   font-size: 20px;

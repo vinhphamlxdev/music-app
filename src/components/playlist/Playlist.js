@@ -1,7 +1,5 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import Icon from "../Icon";
 import PlaylistItem from "./PlaylistItem";
 const StyledPlaylist = styled.div`
   margin-top: 40px;
@@ -16,7 +14,7 @@ const StyledPlaylist = styled.div`
     }
   }
 `;
-const Playlist = ({ title = "Nổi Bật", data }) => {
+const Playlist = ({ title = "Nổi Bật", data = [] }) => {
   return (
     <StyledPlaylist>
       <h3 className="">{title}</h3>

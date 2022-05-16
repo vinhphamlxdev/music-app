@@ -16,7 +16,7 @@ const StyledPlayer = styled.div`
   background-size: 1920px auto;
   background-color: ${(props) => props.theme.layoutBg};
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  z-index: 999999;
+  z-index: 999;
   .player-container {
     display: flex;
     padding: 0 20px;
@@ -122,11 +122,11 @@ const PlayerControl = () => {
             </div>
             <div className="flex items-center justify-end">
               <div className="flex player-icon ">
-                <Icon>
-                  <Tippy content="Thêm vào thư viện">
+                <Tippy content="Thêm vào thư viện">
+                  <Icon>
                     <i className="bi icon-heart bi-heart"></i>
-                  </Tippy>
-                </Icon>
+                  </Icon>
+                </Tippy>
                 <Icon>
                   <i className="bi bi-three-dots"></i>
                 </Icon>
@@ -166,9 +166,11 @@ const PlayerControl = () => {
         </div>
         <div className="w-[30%] flex justify-end">
           <div className="flex items-center justify-center">
-            <Icon>
-              <GiMicrophone className="text-lg"></GiMicrophone>
-            </Icon>
+            <Tippy content="Xem lời bài hát">
+              <Icon>
+                <GiMicrophone className="text-lg"></GiMicrophone>
+              </Icon>
+            </Tippy>
             <Icon>
               <VscChromeRestore className="text-lg"></VscChromeRestore>
             </Icon>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styled from "styled-components";
 const StyledIcon = styled.div`
   border-radius: 100rem;
@@ -10,8 +10,8 @@ const StyledIcon = styled.div`
     background-color: ${(props) => props.theme.alphaBg};
   }
 `;
-const Icon = ({ children }) => {
-  return <StyledIcon>{children}</StyledIcon>;
+const Icon = ({ children, ...props }, ref) => {
+  return <StyledIcon ref={ref}>{children}</StyledIcon>;
 };
 
-export default Icon;
+export default forwardRef(Icon);

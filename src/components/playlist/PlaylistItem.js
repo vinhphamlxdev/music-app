@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import Icon from "../Icon";
 
-const PlaylistItem = ({ items }) => {
+const PlaylistItem = ({ items = [] }) => {
   return (
     <Fragment>
       <div className="grid w-full grid-cols-5 gap-x-3">

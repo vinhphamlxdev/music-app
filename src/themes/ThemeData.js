@@ -27,6 +27,8 @@ export const darkTheme = {
   linkTextHover: "#fff",
   purplePrimary: "#7200a1",
   textColor: "#fff",
+  navigationText: "#a0a0a0",
+  textItemHover: "#fff",
   primaryBg: "#282828",
   alphaBg: "hsla(0,0%,100%,0.1)",
   searchText: "#282828",

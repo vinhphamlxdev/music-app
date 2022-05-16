@@ -8,7 +8,7 @@ const Top = () => {
     const response = await axios.get(
       `https://music-player-pink.vercel.app/api/top100`
     );
-    if (!response?.data.data) return null;
+    if (!response.data.data) return null;
     const results = response.data.data[0].items;
     setDataRes(results);
   };
