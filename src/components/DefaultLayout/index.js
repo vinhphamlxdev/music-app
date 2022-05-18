@@ -5,6 +5,8 @@ import Sidebar from "./Sidebar";
 
 const StyledWrapper = styled.div`
   background-image: url(${(props) => props.theme.bgImage});
+  background-color: ${(props) => props.theme.layoutBg};
+
   background-repeat: no-repeat;
   background-size: 1920px auto;
   width: 100%;

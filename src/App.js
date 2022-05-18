@@ -5,14 +5,28 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "~/styles/GlobalStyles";
 import { publicRoutes } from "./routes";
 import DefaultLayout from "./components/DefaultLayout";
-import { darkTheme } from "./themes/ThemeData";
-import ModalTheme from "./themes/modalTheme";
+import {
+  lonDonTheme,
+  lightDarkTheme,
+  dynamicBlueTheme,
+  dynamicPink,
+  xoneTheme,
+  zmaTheme,
+  eiffelTheme,
+  iuTheme,
+  lisaTheme,
+  jennieTheme,
+  jisooTheme,
+  roseTheme,
+  purpleTheme,
+  jiChangWookTheme,
+  darkTheme,
+} from "./themes/ThemeData";
 function App() {
   return (
     <Fragment>
       <ThemeProvider theme={darkTheme}>
         <GlobalStyles></GlobalStyles>
-        <ModalTheme></ModalTheme>
         <Routes>
           {publicRoutes.map((route, index) => {
             const Page = route.component;

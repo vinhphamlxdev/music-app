@@ -1,21 +1,40 @@
+import LonDon from "~/assets/bg/LondonThumb.png";
+import dynamicLightDark from "~/assets/bg/dynamicLightDark.jpg";
+import dynamicBlue from "~/assets/bg/dynamicBlue.jpg";
+import dynamicPink from "~/assets/bg/dynamicPink.jpg";
+import xoneThumbn from "~/assets/bg/xoneThumbn.jpg";
+import zma from "~/assets/bg/zma.jpg";
+import eiffel from "~/assets/bg/eiffel.jpg";
+import IU from "~/assets/bg/iu.jpg";
+import jiChangWook from "~/assets/bg/jiChangWook.jpg";
+import lisa from "~/assets/bg/lisa.jpg";
+import jennie from "~/assets/bg/jennie.jpg";
+import jisoo from "~/assets/bg/jisoo.jpg";
+import rose from "~/assets/bg/rose.jpg";
+import dark from "~/assets/bg/dark.jpg";
+import purple from "~/assets/bg/purple.jpg";
+import blue from "~/assets/bg/blue.jpg";
+import blueLight from "~/assets/bg/blueLight.jpg";
+
 export const LIST_THEME = [
   {
     type: "Dynamic",
     data: [
       {
-        image:
-          "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/London-thumb.png",
+        image: `${LonDon}`,
         title: "London",
       },
       {
-        image:
-          "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/dynamic-light-dark-1.jpg",
-        title: "Sáng tối",
+        image: `${dynamicLightDark}`,
+        title: "Sáng Tối",
       },
       {
-        image:
-          "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/London-thumb.png",
-        title: "London",
+        image: `${dynamicBlue}`,
+        title: "Xanh Da Trời",
+      },
+      {
+        image: `${dynamicPink}`,
+        title: "Hồng",
       },
     ],
   },
@@ -23,14 +42,16 @@ export const LIST_THEME = [
     type: "Chủ đề",
     data: [
       {
-        image:
-          "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/xone-thumbn.jpg",
+        image: `${xoneThumbn}`,
         title: "XONE",
       },
       {
-        image:
-          "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/zma.jpg",
+        image: `${zma}`,
         title: "Zing Music Awards",
+      },
+      {
+        image: `${eiffel}`,
+        title: "Tháp Eiffel",
       },
     ],
   },
@@ -38,14 +59,49 @@ export const LIST_THEME = [
     type: "Nghệ sĩ",
     data: [
       {
-        image:
-          "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/iu.jpg",
+        image: `${IU}`,
         title: "IU",
       },
       {
-        image:
-          "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/ji-chang-wook.jpg",
+        image: `${jiChangWook}`,
         title: "Ji Chang Wook",
+      },
+      {
+        image: `${lisa}`,
+        title: "Lisa",
+      },
+      {
+        image: `${jennie}`,
+        title: "Jennie Kim",
+      },
+      {
+        image: `${jisoo}`,
+        title: "Jisoo",
+      },
+      {
+        image: `${rose}`,
+        title: "Rosé",
+      },
+    ],
+  },
+  {
+    type: "Màu Tối",
+    data: [
+      {
+        image: `${dark}`,
+        title: "Dark",
+      },
+      {
+        image: `${purple}`,
+        title: "Tím",
+      },
+      {
+        image: `${blue}`,
+        title: "Xanh Đậm",
+      },
+      {
+        image: `${blueLight}`,
+        title: "Xanh Biển",
       },
     ],
   },

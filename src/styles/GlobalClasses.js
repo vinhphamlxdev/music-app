@@ -3,9 +3,14 @@ import { css } from "styled-components";
 export const GlobalClasses = css`
   body {
     background-color: ${(props) => props.theme.layoutBg};
+
     &::-webkit-scrollbar {
       display: none;
     }
+  }
+  h3,
+  h4 {
+    color: ${(props) => props.theme.textPrimary};
   }
   .wrapper {
     position: relative;

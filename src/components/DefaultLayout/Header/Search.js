@@ -4,13 +4,15 @@ import Tippy from "@tippyjs/react/headless";
 import { Wrapper as PopperWrapper } from "./Popper";
 import SuggestItem from "./Popper/SuggestItem";
 import styled from "styled-components";
+import SongSugges from "./Popper/SongSugges";
+import ArtistsSugges from "./Popper/ArtistsSugges";
 // css
 const StyledSearch = styled.div`
   .search-input {
     background-color: ${(props) => props.theme.alphaBg};
     border-radius: 12px;
     font-size: 13px;
-    color: ${(props) => props.theme.textColor};
+    color: ${(props) => props.theme.textPrimary};
     &.show-result {
       border-radius: 20px 20px 0 0;
       background-color: ${(props) => props.theme.primaryBg};
@@ -28,6 +30,30 @@ const StyledSearch = styled.div`
     top: 50%;
     transform: translateY(-50%);
   }
+  .song-sugges-item {
+    &:hover {
+      background-color: ${(props) => props.theme.alphaBg};
+    }
+    &:hover .media-action {
+      visibility: visible;
+    }
+    &:hover .song-thumb::after {
+      visibility: visible;
+    }
+  }
+  .song__sugges-info {
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    align-self: center;
+    .song__sugges-author {
+      color: ${(props) => props.theme.textSecondary};
+      font-size: 12px;
+    }
+    .song__sugges-name:hover {
+      color: ${(props) => props.theme.linkTextHover};
+    }
+  }
 `;
 //
 const Search = () => {
@@ -35,11 +61,28 @@ const Search = () => {
   const [searchValue, setSearchValue] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [showResult, setShowResult] = useState(false);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
-    setTimeout(() => {
-      setSearchResult([1, 2, 3]);
-    }, 2000);
-  }, []);
+    if (!searchValue.trim()) {
+      return;
+    }
+    fetch(
+      `https://music-player-pink.vercel.app/api/search?keyword=${encodeURIComponent(
+        searchValue
+      )}`
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        if (!res.data) return null;
+        const {
+          data: { artists, songs, top },
+        } = res;
+        console.log("nghệ sĩ:", artists);
+        console.log("Bài hát:", songs.slice(0, 3));
+        console.log("top:", top);
+        setSearchResult([artists, songs, top]);
+      });
+  }, [searchValue]);
   const handleShowResult = () => {
     setShowResult(!showResult);
   };
@@ -52,12 +95,27 @@ const Search = () => {
         offset={[0, 0]}
         onClickOutside={() => setShowResult(false)}
         render={(attrs) => (
-          <div className="w-[500px] search-result" tabIndex="-1" {...attrs}>
+          <div
+            className="w-[500px] min-h-0  search-result"
+            tabIndex="-1"
+            {...attrs}
+          >
             <PopperWrapper>
-              <h4 className="search-title">Đề xuất cho bạn</h4>
-              <SuggestItem />
-              <SuggestItem />
-              <SuggestItem />
+              {!searchValue && (
+                <>
+                  <h4 className="search-title">Đề xuất cho bạn</h4>
+                  <SuggestItem />
+                  <SuggestItem />
+                  <SuggestItem />
+                </>
+              )}
+              {searchValue && (
+                <>
+                  <h4 className="sugges-title  text-base font-semibold px-[10px] pb-2">
+                    Gợi ý kết quả
+                  </h4>
+                </>
+              )}
             </PopperWrapper>
           </div>
         )}

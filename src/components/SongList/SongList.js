@@ -50,7 +50,7 @@ const StyledSong = styled.div`
     }
   }
   .icon-dash {
-    color: ${(props) => props.theme.textColor};
+    color: ${(props) => props.theme.textPrimary};
   }
   .song__info {
     overflow: hidden;
@@ -66,7 +66,7 @@ const StyledSong = styled.div`
     font-weight: 500;
     font-size: 14px;
     line-height: 14px;
-    color: ${(props) => props.theme.textColor};
+    color: ${(props) => props.theme.textPrimary};
     margin-top: 3px;
     flex-wrap: nowrap;
     display: -webkit-box;

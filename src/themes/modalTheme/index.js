@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
 import styled from "styled-components";
 import Button from "~/components/button";
 import { LIST_THEME as ListThemeItem } from "./ListTheme";
@@ -10,6 +12,7 @@ const StyledModal = styled.div`
     max-height: 100%;
     position: relative;
     z-index: 100;
+    color: ${(props) => props.theme.textPrimary};
   }
   .modal-title {
     font-size: 24px;
@@ -21,56 +24,101 @@ const StyledModal = styled.div`
     max-height: 50vh;
     min-height: 500px;
     padding: 0 30px;
-    /* overflow-y: scroll; */
+    overflow: hidden overlay;
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 12px;
+      background-color: ${(props) => props.theme.layoutBg};
+    }
     .theme-title {
       font-size: 18px;
       color: ${(props) => props.theme.textPrimary};
     }
-    .theme__item-img {
-      &::after {
-        background-color: ${(props) => props.theme.darkAlpha50Bg};
+    .theme__item-image {
+      .theme__item-img {
+        &::after {
+          background-color: ${(props) => props.theme.darkAlpha50Bg};
+        }
+        &:hover .theme-action {
+          visibility: visible;
+        }
       }
-      &:hover .theme-action {
-        visibility: visible;
+      &:hover .theme__item-img img {
+        transform: scale(1.12, 1.12);
+        border-radius: 6px;
       }
     }
   }
+  .close-modal {
+    color: ${(props) => props.theme.textPrimary};
+  }
 `;
-const ModalTheme = () => {
-  const [themeItem, setThemItem] = useState([]);
+const ModalTheme = ({ open = false, handleClose = () => {} }) => {
+  const [themes, setThemes] = useState([]);
   useEffect(() => {
-    if (!ListThemeItem.length) return null;
-    setThemItem(ListThemeItem);
-  }, [themeItem]);
+    if (!ListThemeItem) return null;
+    setThemes(ListThemeItem);
+  }, []);
+  const ChangeTheme = (theme) => {
+    console.log(theme);
+  };
   if (typeof document === "undefined")
     return <div className="modal-theme"></div>;
   return ReactDOM.createPortal(
-    <StyledModal className="modal-theme w-full h-full fixed  inset-0 transition-all duration-500  z-[9999]">
-      <div className="absolute inset-0 bg-black opacity-60 overlay "></div>
+    <StyledModal
+      className={`modal-theme flex  w-full h-full fixed  inset-0 transition-all duration-700  z-[9999] ${
+        open ? "" : "hidden"
+      }`}
+    >
+      <div
+        onClick={handleClose}
+        className="absolute inset-0 bg-black opacity-60 overlay "
+      ></div>
       <div className="w-[70vw] inset-0 m-auto portal-modal max-w-[900px] pb-5">
+        <Tippy content="Đóng" placement="top">
+          <button
+            onClick={handleClose}
+            className="absolute text-2xl close-modal top-4 right-4"
+          >
+            <i className="text-inherit bi bi-x-lg"></i>
+          </button>
+        </Tippy>
         <h3 className="modal-title">Giao Diện</h3>
         <div className="modal-container">
-          {themeItem.map((item, index) => (
-            <div key={index} className="flex flex-col">
+          {themes.map((theme, index) => (
+            <div key={theme.id} className="flex flex-col">
               <h4 className="theme-title mb-[10px] font-semibold block capitalize">
-                {item.type}
+                {theme.type}
               </h4>
-              <div className="grid gap-x-[14px] grid-cols-4">
-                <div className="mb-5">
-                  <div className="relative w-full overflow-hidden theme__item-image">
-                    <div className="overflow-hidden after:invisible hover:after:rounded-md hover:after:visible rounded-md cursor-pointer relative after:absolute after:inset-0 after:content-[''] after:rounded-md after:w-full after:h-full  theme__item-img">
-                      <img
-                        className="object-cover w-full rounded-md "
-                        src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/jack.jpg"
-                        alt=""
-                      />
-                      <div className="absolute gap-y-[10px] z-50 flex flex-col invisible  theme-action top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4">
-                        <Button>Áp Dụng</Button>
-                        <Button>Xem Trước</Button>
+              <div className="grid gap-x-[14px] grid-cols-6">
+                {theme.data.map((item, index) => (
+                  <div key={index} className="mb-5">
+                    <div className="relative w-full overflow-hidden rounded-md theme__item-image">
+                      <div className="overflow-hidden after:invisible hover:after:rounded-md hover:after:visible rounded-md cursor-pointer relative after:absolute after:inset-0 after:content-['']  after:rounded-md after:w-full after:h-full  theme__item-img">
+                        <img
+                          className="object-cover w-full transition-all duration-500 rounded-md "
+                          src={item.image}
+                          alt=""
+                        />
+                        <div className="absolute gap-y-[10px] z-50 flex flex-col invisible  theme-action top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4">
+                          <Button
+                            onClick={() => {
+                              ChangeTheme(item.title);
+                            }}
+                          >
+                            Áp Dụng
+                          </Button>
+                          <Button preview>Xem Trước</Button>
+                        </div>
                       </div>
                     </div>
+                    <span className="text-xs font-medium leading-[1.36] text-ellipsis py-[6px] block ">
+                      {item.title}
+                    </span>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
           ))}
