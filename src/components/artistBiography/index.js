@@ -45,12 +45,14 @@ const ArtistBiography = ({ data = {} }) => {
           <div className="biography">
             <div className="max-h-[70px] text-inherit text-base  leading-[1.64] mb-4">
               {sortBiography}
-              <button
-                onClick={() => setShowModalBiography(true)}
-                className="inline-block text-xs font-bold uppercase cursor-pointer read-more text-inherit"
-              >
-                ... Xem thêm
-              </button>
+              {biography !== "" && (
+                <button
+                  onClick={() => setShowModalBiography(true)}
+                  className="inline-block text-xs font-bold uppercase cursor-pointer read-more text-inherit"
+                >
+                  ... Xem thêm
+                </button>
+              )}
             </div>
             <div className="flex flex-col gap-y-8 max-h-[138px] justify-between">
               <div className="flex gap-x-[10px]">

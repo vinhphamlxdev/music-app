@@ -77,7 +77,30 @@ export const GlobalClasses = css`
     padding-top: 3px;
     padding-bottom: 3px;
   }
-
+  .overlay {
+    position: relative;
+    overflow: hidden;
+    &::after {
+      position: absolute;
+      border-radius: 6px;
+      content: "";
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background-color: ${(props) => props.theme.darkAlpha50Bg};
+      visibility: hidden;
+    }
+    &:hover::after {
+      visibility: visible;
+    }
+  }
+  .center {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    z-index: 100;
+  }
   .song-animated-item {
     position: absolute;
     cursor: pointer;

@@ -7,7 +7,7 @@ const PlaylistItem = ({ data = [] }) => {
       {data?.length > 0 &&
         data?.slice(0, 5).map((item, index) => (
           <div key={item.encodeId} className="flex flex-col">
-            <div className="relative  card__item-img after:invisible overflow-hidden hover:after:visible after:content-[''] after:w-full after:h-full after:inset-0 after:bg-black after:bg-opacity-50 after:absolute w-full rounded-md cursor-pointer ">
+            <div className="relative w-full overflow-hidden rounded-md cursor-pointer card__item-img overlay ">
               <img
                 className="object-cover w-full transition-all duration-700 rounded-md card-img"
                 src={item.thumbnail}

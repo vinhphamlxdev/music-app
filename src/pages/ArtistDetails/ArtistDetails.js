@@ -2,7 +2,10 @@ import axios from "axios";
 import React, { Fragment, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import styled from "styled-components";
+import ArtistBanner from "~/components/artistBanner";
 import ArtistBiography from "~/components/artistBiography";
+import MvArtist from "~/components/mv";
+import Playlist from "~/components/playlist/Playlist";
 import SongSection from "./song";
 
 const StyledArtistDetails = styled.div`
@@ -33,7 +36,7 @@ const ArtistDetails = () => {
   const fetchDataSinger = async () => {
     try {
       const res = await axios.get(
-        `https://music-player-pink.vercel.app/api/artist?name=jack`
+        `https://music-player-pink.vercel.app/api/artist?name=sontungMTP`
       );
       const { data } = res.data;
       // console.log(res.data);
@@ -82,6 +85,12 @@ const ArtistDetails = () => {
                 data={{ ...item }}
               ></SongSection>
             );
+          } else if (sectionType === "playlist") {
+            return <Playlist key={`${title}${index}`} data={{ ...item }} />;
+          } else if (sectionType === "artist") {
+            return <ArtistBanner key={`${title}${index}`} data={{ ...item }} />;
+          } else if (sectionType === "video") {
+            return <MvArtist key={`${title}${index}`} data={{ ...item }} />;
           }
         })}
       </StyledArtistDetails>

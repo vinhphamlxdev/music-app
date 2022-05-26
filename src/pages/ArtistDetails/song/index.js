@@ -10,11 +10,11 @@ const StyledSectionSong = styled.div`
     will-change: scroll-position;
     scroll-behavior: smooth;
     &::-webkit-scrollbar {
-      width: 6px;
+      width: 4px;
       display: none;
     }
     &:hover::-webkit-scrollbar {
-      width: 6px;
+      width: 4px;
       display: inline-block;
     }
     &::-webkit-scrollbar-thumb {
