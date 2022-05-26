@@ -1,41 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { GiMicrophone } from "react-icons/gi";
 import Icon from "~/components/Icon";
+import SlideShow from "./SlideShow";
 import styled from "styled-components";
 import ConvertDuration from "~/utils/ConvertTime";
 const StyledSectionSong = styled.div`
-  .song-animate-item {
-    transition: all 0.9s;
-    &.first {
-      z-index: 3;
-      left: 40px;
-      opacity: 1;
-    }
-    &.second {
-      z-index: 2;
-      left: 20px;
-      width: 196px;
-      height: 196px;
-      opacity: 0.7;
-      background-image: linear-gradient(
-        90deg,
-        hsla(0, 0%, 100%, 0.5) 1%,
-        rgba(0, 0, 0, 0.6) 14%
-      );
-    }
-    &.third {
-      z-index: 1;
-      left: 0;
-      width: 162px;
-      height: 162px;
-      opacity: 0.3;
-      background-image: linear-gradient(
-        90deg,
-        hsla(0, 0%, 100%, 0.5) 1%,
-        rgba(0, 0, 0, 0.6) 14%
-      );
-    }
-  }
   .play-list {
     overflow: hidden overlay;
     will-change: scroll-position;
@@ -141,32 +110,13 @@ const StyledSectionSong = styled.div`
   }
 `;
 const SongSection = ({ data = {} }) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const slideRef = useRef(null);
-  const handleChangeSlide = () => {
-    setInterval(() => {
-      slideRef.current.className.add("second");
-    }, 2000);
-  };
-  useEffect(() => {
-    handleChangeSlide();
-  }, []);
   const { items, title } = data;
   return (
     <StyledSectionSong className="container-layout">
       <h3>{title}</h3>
-      <div className="flex mb-[25px] ">
+      <div className="flex mb-[25px]">
         <div className="relative pt-[10px] w-[270px] h-[230px] flex items-center">
-          <div
-            ref={slideRef}
-            className="absolute   cursor-pointer song-animate-item rounded-[4px] overflow-hidden transition-all duration-700 w-[230px] h-[230px] left-10"
-          >
-            <img
-              className="w-full object-cover rounded-[4px]"
-              src="https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/covers/c/b/cb61528885ea3cdcd9bdb9dfbab067b1_1504988884.jpg"
-              alt=""
-            />
-          </div>
+          <SlideShow data={items} />
         </div>
         <div className="h-[244px] play-list pl-5 w-full flex flex-col flex-1">
           {items.length > 0 &&

@@ -77,4 +77,44 @@ export const GlobalClasses = css`
     padding-top: 3px;
     padding-bottom: 3px;
   }
+
+  .song-animated-item {
+    position: absolute;
+    cursor: pointer;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.9s;
+    width: 230px;
+    height: 230px;
+    transition: all 0.9s;
+    &.first {
+      z-index: 3;
+      left: 40px;
+      opacity: 1;
+    }
+    &.second {
+      z-index: 2;
+      left: 20px;
+      width: 196px;
+      height: 196px;
+      opacity: 0.7;
+      background-image: linear-gradient(
+        90deg,
+        hsla(0, 0%, 100%, 0.5) 1%,
+        rgba(0, 0, 0, 0.6) 14%
+      );
+    }
+    &.third {
+      z-index: 1;
+      left: 0;
+      width: 162px;
+      height: 162px;
+      opacity: 0.3;
+      background-image: linear-gradient(
+        90deg,
+        hsla(0, 0%, 100%, 0.5) 1%,
+        rgba(0, 0, 0, 0.6) 14%
+      );
+    }
+  }
 `;
