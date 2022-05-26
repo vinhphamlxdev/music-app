@@ -25,7 +25,7 @@ import {
 function App() {
   return (
     <Fragment>
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider theme={roseTheme}>
         <GlobalStyles></GlobalStyles>
         <Routes>
           {publicRoutes.map((route, index) => {

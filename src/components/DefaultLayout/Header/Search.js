@@ -4,8 +4,11 @@ import Tippy from "@tippyjs/react/headless";
 import { Wrapper as PopperWrapper } from "./Popper";
 import SuggestItem from "./Popper/SuggestItem";
 import styled from "styled-components";
-import SongSugges from "./Popper/SongSugges";
-import ArtistsSugges from "./Popper/ArtistsSugges";
+import { useDebounce } from "~/hooks";
+import SearchSuggest from "./Popper/SearchSuggest";
+import Loading from "~/utils/Loading";
+import axios from "axios";
+import { toast } from "react-toastify";
 // css
 const StyledSearch = styled.div`
   .search-input {
@@ -54,6 +57,16 @@ const StyledSearch = styled.div`
       color: ${(props) => props.theme.linkTextHover};
     }
   }
+  .suggest-container {
+    overflow: hidden overlay;
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 12px;
+      background-color: ${(props) => props.theme.layoutBg};
+    }
+  }
 `;
 //
 const Search = () => {
@@ -62,27 +75,38 @@ const Search = () => {
   const [searchResult, setSearchResult] = useState([]);
   const [showResult, setShowResult] = useState(false);
   const [loading, setLoading] = useState(false);
+  const debounced = useDebounce(searchValue, 600);
   useEffect(() => {
-    if (!searchValue.trim()) {
+    if (!debounced.trim()) {
       return;
     }
-    fetch(
-      `https://music-player-pink.vercel.app/api/search?keyword=${encodeURIComponent(
-        searchValue
-      )}`
-    )
-      .then((res) => res.json())
-      .then((res) => {
-        if (!res.data) return null;
+    setLoading(true);
+
+    async function fetchData() {
+      try {
+        const response = await axios.get(
+          `https://music-player-pink.vercel.app/api/search?keyword=${encodeURIComponent(
+            debounced
+          )}`
+        );
+        // console.log(response.data);
+        if (!response.data) return {};
         const {
-          data: { artists, songs, top },
-        } = res;
-        console.log("nghệ sĩ:", artists);
-        console.log("Bài hát:", songs.slice(0, 3));
-        console.log("top:", top);
-        setSearchResult([artists, songs, top]);
-      });
-  }, [searchValue]);
+          data: { songs = [], artists = [] },
+        } = response.data;
+        setSearchResult([...songs, ...artists.slice(0, 2)]);
+        // console.log("ket qua:", searchResult);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchData();
+
+    setLoading(false);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debounced]);
   const handleShowResult = () => {
     setShowResult(!showResult);
   };
@@ -109,12 +133,21 @@ const Search = () => {
                   <SuggestItem />
                 </>
               )}
-              {searchValue && (
-                <>
+              {loading && <Loading />}
+              {searchValue && searchResult[0] && !loading ? (
+                <div className="suggest-container max-h-[400px]">
                   <h4 className="sugges-title  text-base font-semibold px-[10px] pb-2">
                     Gợi ý kết quả
                   </h4>
-                </>
+                  <SearchSuggest data={searchResult} />
+                </div>
+              ) : (
+                searchValue &&
+                !searchResult[0] && (
+                  <div className="h-auto text-center suggest-container">
+                    Không tìm thấy kết quả
+                  </div>
+                )
               )}
             </PopperWrapper>
           </div>

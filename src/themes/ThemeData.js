@@ -260,6 +260,7 @@ export const jennieTheme = {
   scrollBg: "rgb(143, 143, 143)",
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
   boxItemBg: "hsla(0,0%,100%,0.3)",
+  mainBoxShadow: "rgba(66,66,66,0.4)",
 };
 export const jisooTheme = {
   bgImage: `${jisoo}`,
@@ -283,16 +284,17 @@ export const jisooTheme = {
   scrollBg: "rgb(143, 143, 143)",
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
   boxItemBg: "#fff",
+  mainBoxShadow: "rgba(66,66,66,0.4)",
 };
 export const roseTheme = {
   bgImage: `${rose}`,
   layoutBg: "#061d50",
   sidebarBg: "hsla(0,0%,100%,0.05)",
   textPrimary: "#fff",
-  linkTextHover: "#dadada",
+  linkTextHover: "#6e8ffb",
   purplePrimary: "#3460f5",
   navigationText: "#dadada",
-  settingIconText: " #d8d8d8;",
+  settingIconText: " #d8d8d8",
   primaryBg: "#192f60",
   alphaBg: "hsla(0,0%,100%,0.1)",
   searchText: "#eee",
@@ -305,6 +307,7 @@ export const roseTheme = {
   scrollBg: "linear-gradient(117deg,#5a4be7,#c86dd7 102%)",
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
   boxItemBg: "hsla(0,0%,100%,0.1)",
+  mainBoxShadow: "rgba(66,66,66,0.4)",
 };
 export const darkTheme = {
   bgImage: "",
@@ -327,6 +330,7 @@ export const darkTheme = {
   scrollBg: "linear-gradient(117deg,#5a4be7,#c86dd7 102%)",
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
   boxItemBg: "hsla(0,0%,100%,0.1)",
+  mainBoxShadow: "rgba(66,66,66,0.4)",
 };
 // Tím
 export const purpleTheme = {
@@ -348,6 +352,7 @@ export const purpleTheme = {
   scrollBg: "linear-gradient(117deg,#5a4be7,#c86dd7 102%)",
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
   boxItemBg: "hsla(0,0%,100%,0.1)",
+  mainBoxShadow: "rgba(66,66,66,0.4)",
 };
 // Xanh đậm
 export const blueTheme = {
@@ -369,6 +374,7 @@ export const blueTheme = {
   scrollBg: "linear-gradient(117deg,#5a4be7,#c86dd7 102%)",
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
   boxItemBg: "hsla(0,0%,100%,0.1)",
+  mainBoxShadow: "rgba(66,66,66,0.4)",
 };
 // xanh biển
 export const blueLightTheme = {
@@ -390,4 +396,5 @@ export const blueLightTheme = {
   scrollBg: "linear-gradient(117deg,#5a4be7,#c86dd7 102%)",
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
   boxItemBg: "hsla(0,0%,100%,0.1)",
+  mainBoxShadow: "rgba(66,66,66,0.4)",
 };

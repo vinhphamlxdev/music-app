@@ -23,7 +23,7 @@ export const GlobalClasses = css`
     padding-left: 32px;
     padding-right: 32px;
     padding-top: 90px;
-    padding-bottom: 100px;
+    padding-bottom: 140px;
     ${
       "" /* &::-webkit-scrollbar {
       width: 6px;
@@ -33,6 +33,11 @@ export const GlobalClasses = css`
       background-color: ${(props) => props.theme.alphaBg};
     } */
     }
+  }
+  .container-layout {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
   }
   .card-title {
     color: ${(props) => props.theme.textPrimary};
@@ -44,8 +49,9 @@ export const GlobalClasses = css`
     -webkit-line-clamp: 1;
     text-transform: capitalize;
   }
+  h4,
   h3 {
-    color: ${(props) => props.theme.textColor};
+    color: ${(props) => props.theme.textPrimary};
   }
   .card-content-subtitle {
     font-size: 14px;
@@ -60,5 +66,15 @@ export const GlobalClasses = css`
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     font-weight: 400;
+  }
+  .content {
+    width: 100%;
+  }
+  .tippy-box {
+    font-size: 12px;
+  }
+  .tippy-content {
+    padding-top: 3px;
+    padding-bottom: 3px;
   }
 `;

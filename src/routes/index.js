@@ -1,19 +1,24 @@
 import Profile from "../pages/ProfilePage/Profile";
-import Explore from "~/pages/ExplorePage/Explore";
 import Radio from "~/pages/RadioPage/Radio";
+import Home from "~/pages/Home/Home";
+import ArtistDetails from "~/pages/ArtistDetails/ArtistDetails";
 //  public Router
 export const publicRoutes = [
   {
-    path: "/",
+    path: "/profile",
     component: Profile,
   },
   {
-    path: "/explore",
-    component: Explore,
+    path: "/",
+    component: Home,
   },
   {
     path: "/radio",
     component: Radio,
+  },
+  {
+    path: "/Singer/:name",
+    component: ArtistDetails,
   },
 ];
 // Private Router

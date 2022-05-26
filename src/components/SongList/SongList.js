@@ -6,6 +6,7 @@ import { TiArrowSortedUp } from "react-icons/ti";
 import { TiArrowSortedDown } from "react-icons/ti";
 import Icon from "../Icon";
 import Playlist from "../playlist/Playlist";
+import ConvertDuration from "~/utils/ConvertTime";
 const StyledSong = styled.div`
   border-bottom: 1px solid ${(props) => props.theme.borderSecondary};
   border-radius: 5px;
@@ -136,8 +137,11 @@ const SongList = () => {
       `https://music-player-pink.vercel.app/api/chart-home`
     );
     if (!res) return null;
-    const getTop100 = res.data.data.RTChart.items;
-    setTop100(getTop100);
+    const {
+      RTChart: { items },
+    } = res.data.data;
+    setTop100(items);
+    console.log(items);
   };
   useEffect(() => {
     handleGetTop100();
@@ -182,7 +186,7 @@ const SongList = () => {
                           )}
                           <span className="text-xs text-center w-[18px] h-[18px] inline-block font-bold text-inherit">
                             {item.rakingStatus < 0
-                              ? -item.rakingStatus
+                              ? Math.abs(item.rakingStatus)
                               : item.rakingStatus}
                           </span>
                         </div>
@@ -222,7 +226,7 @@ const SongList = () => {
                     </div>
                     <div className="actions-item">
                       <div className="flex items-center justify-center w-[46px] media-duration">
-                        04:20
+                        {ConvertDuration(item.duration)}
                       </div>
                     </div>
                   </div>

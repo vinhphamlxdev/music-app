@@ -18,7 +18,9 @@ import blueLight from "~/assets/bg/blueLight.jpg";
 
 export const LIST_THEME = [
   {
+    id: 1,
     type: "Dynamic",
+
     data: [
       {
         image: `${LonDon}`,
@@ -39,6 +41,8 @@ export const LIST_THEME = [
     ],
   },
   {
+    id: 2,
+
     type: "Chủ đề",
     data: [
       {
@@ -56,6 +60,8 @@ export const LIST_THEME = [
     ],
   },
   {
+    id: 3,
+
     type: "Nghệ sĩ",
     data: [
       {
@@ -85,6 +91,7 @@ export const LIST_THEME = [
     ],
   },
   {
+    id: 4,
     type: "Màu Tối",
     data: [
       {

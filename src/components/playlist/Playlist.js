@@ -13,12 +13,24 @@ const StyledPlaylist = styled.div`
       visibility: visible;
     }
   }
+  .artist-name {
+    color: ${(props) => props.theme.textSecondary};
+    cursor: pointer;
+    &:hover {
+      color: ${(props) => props.theme.linkTextHover};
+      text-decoration: underline;
+    }
+  }
 `;
-const Playlist = ({ title = "Nổi Bật", data = [] }) => {
+const Playlist = ({ data = {} }) => {
+  const { items, title } = data;
+
   return (
     <StyledPlaylist>
-      <h3 className="">{title}</h3>
-      {<PlaylistItem items={data}></PlaylistItem>}
+      <h3>{title}</h3>
+      <div className="grid w-full grid-cols-5 gap-x-7">
+        {<PlaylistItem data={items}></PlaylistItem>}
+      </div>
     </StyledPlaylist>
   );
 };

@@ -77,10 +77,10 @@ const ModalTheme = ({ open = false, handleClose = () => {} }) => {
         className="absolute inset-0 bg-black opacity-60 overlay "
       ></div>
       <div className="w-[70vw] inset-0 m-auto portal-modal max-w-[900px] pb-5">
-        <Tippy content="Đóng" placement="top">
+        <Tippy interactive content="Đóng" placement="top">
           <button
             onClick={handleClose}
-            className="absolute text-2xl close-modal top-4 right-4"
+            className="absolute z-50 text-2xl close-modal top-4 right-4"
           >
             <i className="text-inherit bi bi-x-lg"></i>
           </button>
