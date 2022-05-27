@@ -4,6 +4,7 @@ import Icon from "~/components/Icon";
 import SlideShow from "./SlideShow";
 import styled from "styled-components";
 import ConvertDuration from "~/utils/ConvertTime";
+import Tippy from "@tippyjs/react";
 const StyledSectionSong = styled.div`
   .play-list {
     overflow: hidden overlay;
@@ -144,7 +145,7 @@ const SongSection = ({ data = {} }) => {
                         </div>
                       </div>
                       <div className="overflow-hidden song__info flex-nowrap">
-                        <div className="text-base font-medium capitalize song__info-name text-ellipsis">
+                        <div className="text-sm font-medium capitalize song__info-name text-ellipsis">
                           {title}
                         </div>
                         <div className="text-xs song__info-author">
@@ -157,15 +158,21 @@ const SongSection = ({ data = {} }) => {
                     </div>
                     <div className="transition-all duration-500 flex ml-[10px] items-center media-right">
                       <div className="hover-item">
-                        <Icon>
-                          <GiMicrophone></GiMicrophone>
-                        </Icon>
-                        <Icon>
-                          <i className="bi icon-heart bi-heart"></i>
-                        </Icon>
-                        <Icon>
-                          <i className="bi bi-three-dots"></i>
-                        </Icon>
+                        <Tippy content="Phát cùng lời bài hát">
+                          <Icon>
+                            <GiMicrophone></GiMicrophone>
+                          </Icon>
+                        </Tippy>
+                        <Tippy content="Thêm vào thư viện">
+                          <Icon>
+                            <i className="bi icon-heart bi-heart"></i>
+                          </Icon>
+                        </Tippy>
+                        <Tippy content="Khác">
+                          <Icon>
+                            <i className="bi bi-three-dots"></i>
+                          </Icon>
+                        </Tippy>
                       </div>
                       <div className="actions-item">
                         <div className="flex items-center justify-center w-[46px] media-duration">

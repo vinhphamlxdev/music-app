@@ -28,7 +28,7 @@ const PlaylistItem = ({ data = [] }) => {
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="mt-2 mb-1 text-base font-bold cursor-pointer card-title text-inherit ">
+                <span className="mt-2 mb-1 text-sm font-bold cursor-pointer card-title text-inherit ">
                   {title}
                 </span>
                 <h4 className="card-content-subtitle">{sortDescription}</h4>

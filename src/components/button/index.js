@@ -2,6 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { css } from "styled-components";
 const StyledButton = styled.button`
+  &:hover {
+    filter: brightness(0.9);
+  }
   background-color: ${(props) => props.theme.purplePrimary};
   /* border: 1px solid ${(props) => props.theme.purplePrimary}; */
   color: #fff;
@@ -9,6 +12,7 @@ const StyledButton = styled.button`
   cursor: pointer;
   font-size: 8px;
   text-transform: uppercase;
+  font-weight: 400;
   ${(props) =>
     props.preview &&
     css`
@@ -19,6 +23,12 @@ const StyledButton = styled.button`
     props.border &&
     css`
       border-color: ${(props) => props.theme.purplePrimary};
+    `};
+  ${(props) =>
+    props.large &&
+    css`
+      padding: 9px 24px;
+      font-size: 14px;
     `};
 `;
 const Button = ({
@@ -34,11 +44,12 @@ const Button = ({
 }) => {
   return (
     <StyledButton
+      large={large}
       preview={preview}
       onClick={onClick}
       className={`flex items-center whitespace-nowrap rounded-full justify-center  rounded-  uppercase  ${className}`}
     >
-      {leftIcon && <>{leftIcon}</>}
+      {leftIcon && <div className="text-[16px] mr-[5px]">{leftIcon}</div>}
       <span> {children}</span>
       {rightIcon && <>{rightIcon}</>}
     </StyledButton>

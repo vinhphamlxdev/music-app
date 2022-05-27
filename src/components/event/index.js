@@ -15,7 +15,7 @@ const StyledEvent = styled.div`
   .event-follower {
     color: ${(props) => props.theme.textPrimary};
   }
-  .follower-avarta {
+  .follower-avatar {
     border: 2px solid ${(props) => props.theme.primaryBg};
   }
   .follower-text {
@@ -64,7 +64,7 @@ const Event = ({ data = {} }) => {
                       {followers.slice(0, 6).map((item) => (
                         <div
                           key={item.id}
-                          className="relative w-5 h-5 rounded-full follower-avarta"
+                          className="relative w-5 h-5 overflow-hidden rounded-full follower-avatar"
                         >
                           <img
                             className="object-cover w-full rounded-full"

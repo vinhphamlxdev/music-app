@@ -50,7 +50,7 @@ const MvArtist = ({ data = {} }) => {
                   <div className="cursor-pointer invisible text-center border  border-white w-[45px] h-[45px] rounded-full center mv-action">
                     <i className=" text-[30px] leading-[45px]   bi bi-play-fill text-white"></i>
                   </div>
-                  <div className="absolute text-base text-white right-2 bottom-2 leading-normal py-[3px] font-normal px-[5px] rounded-[4px] z-[200] bg-[rgba(0,0,0,.7)]">
+                  <div className="absolute text-base text-white right-2 bottom-2 leading-normal py-[3px] font-normal px-[5px] rounded-[4px] z-[20] bg-[rgba(0,0,0,.7)]">
                     {ConvertDuration(duration)}
                   </div>
                 </div>
@@ -65,7 +65,7 @@ const MvArtist = ({ data = {} }) => {
                     </div>
                   </div>
                   <div className="flex flex-col overflow-hidden">
-                    <span className="max-w-full overflow-hidden text-base leading-normal cursor-pointer mv-title whitespace-nowrap text-ellipsis ">
+                    <span className="max-w-full overflow-hidden text-sm leading-normal cursor-pointer mv-title whitespace-nowrap text-ellipsis ">
                       {name}
                     </span>
                     <div className="mt-[3px] mv-author w-full whitespace-nowrap overflow-hidden  text-ellipsis">

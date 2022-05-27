@@ -57,12 +57,13 @@ const ArtistBiography = ({ data = {} }) => {
             <div className="flex flex-col gap-y-8 max-h-[138px] justify-between">
               <div className="flex gap-x-[10px]">
                 <Button
+                  large
                   className="play-btn"
-                  leftIcon={<BsFillPlayFill className="text-[16px] mr-[5px]" />}
+                  leftIcon={<BsFillPlayFill />}
                 >
                   Phát nhạc
                 </Button>
-                <Button className="play-btn">
+                <Button large className="play-btn">
                   Quan tâm • {ConvertNumber(totalFollow)}
                 </Button>
               </div>

@@ -82,7 +82,7 @@ const SearchSuggest = ({ data = [] }) => {
                   </div>
                 </div>
                 <div className="w-0 text-left song__sugges-info ">
-                  <h3 className="mb-0 text-base font-medium leading-5 capitalize cursor-pointer song__sugges-name text-ellipsis ">
+                  <h3 className="mb-0 text-sm font-medium leading-5 capitalize cursor-pointer song__sugges-name text-ellipsis ">
                     {title}
                   </h3>
                   <span className="cursor-pointer song__sugges-author">

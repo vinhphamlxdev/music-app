@@ -7,6 +7,7 @@ import { TiArrowSortedDown } from "react-icons/ti";
 import Icon from "../Icon";
 import Playlist from "../playlist/Playlist";
 import ConvertDuration from "~/utils/ConvertTime";
+import Tippy from "@tippyjs/react";
 const StyledSong = styled.div`
   border-bottom: 1px solid ${(props) => props.theme.borderSecondary};
   border-radius: 5px;
@@ -214,15 +215,21 @@ const SongList = () => {
                   </div>
                   <div className="transition-all duration-500 media-right">
                     <div className="hover-item">
-                      <Icon>
-                        <GiMicrophone></GiMicrophone>
-                      </Icon>
-                      <Icon>
-                        <i className="bi icon-heart bi-heart"></i>
-                      </Icon>
-                      <Icon>
-                        <i className="bi bi-three-dots"></i>
-                      </Icon>
+                      <Tippy content="Phát cùng lời bài hát">
+                        <Icon>
+                          <GiMicrophone></GiMicrophone>
+                        </Icon>
+                      </Tippy>
+                      <Tippy content="Thêm vào thư viện">
+                        <Icon>
+                          <i className="bi icon-heart bi-heart"></i>
+                        </Icon>
+                      </Tippy>
+                      <Tippy content="Khác">
+                        <Icon>
+                          <i className="bi bi-three-dots"></i>
+                        </Icon>
+                      </Tippy>
                     </div>
                     <div className="actions-item">
                       <div className="flex items-center justify-center w-[46px] media-duration">
