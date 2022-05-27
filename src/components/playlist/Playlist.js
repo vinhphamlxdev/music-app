@@ -26,7 +26,7 @@ const Playlist = ({ data = {} }) => {
   const { items, title } = data;
 
   return (
-    <StyledPlaylist>
+    <StyledPlaylist className="container-layout">
       <h3>{title}</h3>
       <div className="grid w-full grid-cols-5 gap-x-7">
         {<PlaylistItem data={items}></PlaylistItem>}

@@ -2,6 +2,7 @@ import Profile from "../pages/ProfilePage/Profile";
 import Radio from "~/pages/RadioPage/Radio";
 import Home from "~/pages/Home/Home";
 import ArtistDetails from "~/pages/ArtistDetails/ArtistDetails";
+import AlbumDetails from "~/pages/album/AlbumDetails";
 //  public Router
 export const publicRoutes = [
   {
@@ -17,8 +18,12 @@ export const publicRoutes = [
     component: Radio,
   },
   {
-    path: "/Singer/:name",
+    path: "/singer/:name",
     component: ArtistDetails,
+  },
+  {
+    path: "/album/:id",
+    component: AlbumDetails,
   },
 ];
 // Private Router

@@ -30,9 +30,10 @@ const StyledArtist = styled.div`
   }
 `;
 const ArtistBanner = ({ data = {} }) => {
-  const { items } = data;
+  const { items, title } = data;
   return (
     <div className="container-layout">
+      <h3>{title}</h3>
       <StyledArtist className="grid grid-cols-5 gap-x-7">
         {items.slice(0, 5).map((item) => (
           <div

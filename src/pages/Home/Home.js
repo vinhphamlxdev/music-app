@@ -19,7 +19,7 @@ const Home = () => {
   useEffect(() => {
     async function fetchDataHome() {
       const res = await axios.get(
-        `https://music-player-pink.vercel.app/api/home?page=2`
+        `https://music-player-pink.vercel.app/api/home?page=3`
       );
       if (!res.data) return null;
       const {

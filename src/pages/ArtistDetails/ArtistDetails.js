@@ -36,7 +36,7 @@ const ArtistDetails = () => {
   const fetchDataSinger = async () => {
     try {
       const res = await axios.get(
-        `https://music-player-pink.vercel.app/api/artist?name=sontungMTP`
+        `https://music-player-pink.vercel.app/api/artist?name=jack`
       );
       const { data } = res.data;
       // console.log(res.data);
