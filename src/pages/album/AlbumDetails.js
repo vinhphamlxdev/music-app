@@ -6,10 +6,8 @@ import Button from "~/components/button";
 import Icon from "~/components/Icon";
 import { BsFillHeartFill } from "react-icons/bs";
 import Tippy from "@tippyjs/react";
-import { BiSortAlt2 } from "react-icons/bi";
-
 import ConvertNumber from "~/utils/ConvertNumber";
-import SongItem from "./songItem";
+import SongAlbum from "./songAlbum";
 const StyledAlbum = styled.div`
   .album-content {
     display: flex;
@@ -192,23 +190,17 @@ const AlbumDetails = () => {
       const res = await axios.get(
         `https://music-player-pink.vercel.app/api/playlist?id=ZWZB96C7`
       );
-      if (!res.data) return null;
+      if (!res.data) return;
       const { data } = res.data;
 
       setDataAlbum(data);
 
-      console.log("Ket qua album:", res);
+      console.log("Ket qua album:", dataAlbum);
     }
     fetchDataHome();
   }, []);
-  const {
-    title,
-    thumbnailM,
-    like,
-    sortDescription,
-    artistsNames,
-    song: { items },
-  } = dataAlbum;
+  const { title, thumbnailM, like, sortDescription, artistsNames, song } =
+    dataAlbum;
   return (
     <StyledAlbum className="wrapper mt-[90px]">
       <div className="pt-5 album-container">
@@ -260,40 +252,7 @@ const AlbumDetails = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col flex-1">
-            <div className="description text-sm pb-[10px]">
-              <span className="mr-2">Lời tựa</span>
-              {sortDescription}
-            </div>
-            <div className="song-list-select mb-[10px]">
-              <div className="flex select-header">
-                <div className="w-2/4 mr-[10px] ">
-                  <div className="flex items-center ">
-                    <div className="mr-[10px] sort-btn">
-                      <BiSortAlt2 className="text-xs leading-[0] text-inherit " />
-                    </div>
-                    <div className="text-xs font-medium uppercase column-text">
-                      Bài hát
-                    </div>
-                  </div>
-                </div>
-                <div className="ml-[10px] album-media-content">
-                  <div className="column-text ml-[10px] text-xs">Album</div>
-                </div>
-                <div className="album-media-right ml-[10px] ">
-                  <div className="column-text ml-[10px] text-xs uppercase">
-                    THỜI GIAN
-                  </div>
-                </div>
-              </div>
-              <div className="song-album-list has-scroll-bar">
-                {items.length > 0 &&
-                  items.map((item) => (
-                    <SongItem key={item.encodeId} data={{ ...item }} />
-                  ))}
-              </div>
-            </div>
-          </div>
+          <SongAlbum title={sortDescription} data={song} />
         </div>
       </div>
     </StyledAlbum>

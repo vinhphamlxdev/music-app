@@ -95,6 +95,7 @@ const StyledSectionSong = styled.div`
   }
 `;
 const SongSection = ({ data = {} }) => {
+  console.log("song artist:", data);
   const { items, title } = data;
   return (
     <StyledSectionSong className="container-layout">
