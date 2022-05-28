@@ -101,6 +101,24 @@ export const GlobalClasses = css`
     left: 50%;
     z-index: 100;
   }
+  .has-scroll-bar {
+    will-change: scroll-position;
+    scroll-behavior: smooth;
+    overflow: hidden overlay;
+    &::-webkit-scrollbar {
+      width: 4px;
+      display: none;
+    }
+    &:hover::-webkit-scrollbar {
+      width: 4px;
+      display: inline-block;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 12px;
+      background: ${(props) => props.theme.tabActiveBg};
+    }
+  }
+
   .song-animated-item {
     position: absolute;
     cursor: pointer;

@@ -7,22 +7,6 @@ import ConvertDuration from "~/utils/ConvertTime";
 import Tippy from "@tippyjs/react";
 const StyledSectionSong = styled.div`
   .play-list {
-    overflow: hidden overlay;
-    will-change: scroll-position;
-    scroll-behavior: smooth;
-    &::-webkit-scrollbar {
-      width: 4px;
-      display: none;
-    }
-    &:hover::-webkit-scrollbar {
-      width: 4px;
-      display: inline-block;
-    }
-    &::-webkit-scrollbar-thumb {
-      border-radius: 12px;
-      background: ${(props) => props.theme.tabActiveBg};
-    }
-
     & .song-item {
       border-bottom: 1px solid ${(props) => props.theme.borderSecondary};
       border-radius: 5px;
@@ -119,7 +103,7 @@ const SongSection = ({ data = {} }) => {
         <div className="relative pt-[10px] w-[270px] h-[230px] flex items-center">
           <SlideShow data={items} />
         </div>
-        <div className="h-[244px] play-list pl-5 w-full flex flex-col flex-1">
+        <div className="h-[244px] has-scroll-bar play-list pl-5 w-full flex flex-col flex-1">
           {items.length > 0 &&
             items?.map((item, index) => {
               const {
