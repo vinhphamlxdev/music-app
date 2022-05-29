@@ -19,8 +19,11 @@ const StyledMv = styled.div`
   .mv-author {
     color: ${(props) => props.theme.textSecondary};
     flex-wrap: nowrap;
-
     text-overflow: ellipsis;
+    & span:hover {
+      text-decoration: underline;
+      color: ${(props) => props.theme.linkTextHover};
+    }
   }
 `;
 const MvArtist = ({ data = {} }) => {
@@ -70,16 +73,20 @@ const MvArtist = ({ data = {} }) => {
                     </span>
                     <div className="mt-[3px] mv-author w-full whitespace-nowrap overflow-hidden  text-ellipsis">
                       {artists.length > 0 &&
-                        artists.map((artist, index) => {
-                          return (
-                            <p
-                              key={artist.id}
-                              className="inline-block max-w-full text-xs text-inherit "
-                            >
-                              {` ${artist.name}, `}
-                            </p>
-                          );
-                        })}
+                        artists
+                          .map((item) => {
+                            const { name, id } = item;
+                            console.log(name);
+                            return (
+                              <span
+                                key={id}
+                                className="inline-block max-w-full text-xs cursor-pointer text-inherit "
+                              >
+                                {name}
+                              </span>
+                            );
+                          })
+                          .reduce((prev, curr) => [prev, ", ", curr])}
                     </div>
                   </div>
                 </div>

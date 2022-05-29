@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useRef } from "react";
 import { GiMicrophone } from "react-icons/gi";
 import ConvertDuration from "~/utils/ConvertTime";
 import { IoIosMusicalNotes } from "react-icons/io";
@@ -6,6 +6,7 @@ import Tippy from "@tippyjs/react";
 import Icon from "~/components/Icon";
 import viplabel from "~/assets/image/vipLabel.svg";
 import { BiSortAlt2 } from "react-icons/bi";
+import ConvertTotalDuration from "~/utils/ConvertTotalDuration";
 
 const SongAlbum = ({ data, title }) => {
   console.log("song album:", data);
@@ -86,11 +87,17 @@ const SongAlbum = ({ data, title }) => {
                             )}
                           </div>
                           <div className="text-xs song__info-author">
-                            son tung
+                            {artists.length > 0 &&
+                              artists
+                                .map((item) => {
+                                  const { name, id } = item;
+                                  return <span key={id}>{name}</span>;
+                                })
+                                .reduce((prev, curr) => [prev, ", ", curr])}
                           </div>
                         </div>
                       </div>
-                      <div className="text-xs text-left media-content">
+                      <div className="text-xs text-left media-content album-info">
                         {album ? album.title : ""}
                       </div>
                       <div className="transition-all duration-500 flex ml-[10px] items-center media-right">
@@ -121,6 +128,12 @@ const SongAlbum = ({ data, title }) => {
                   </div>
                 );
               })}
+          </div>
+          <div className="bottom-info subtitle">
+            <span className="mr-2 text-xs text-inherit">{total} bài hát</span>•
+            <span className="ml-2 text-xs text-inherit">
+              {ConvertTotalDuration(totalDuration)} giờ
+            </span>
           </div>
         </div>
       </div>

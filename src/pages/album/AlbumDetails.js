@@ -8,6 +8,8 @@ import { BsFillHeartFill } from "react-icons/bs";
 import Tippy from "@tippyjs/react";
 import ConvertNumber from "~/utils/ConvertNumber";
 import SongAlbum from "./songAlbum";
+import ConvertDates from "~/utils/ConvertDates";
+import ArtistBanner from "~/components/artistBanner";
 const StyledAlbum = styled.div`
   .album-content {
     display: flex;
@@ -40,7 +42,7 @@ const StyledAlbum = styled.div`
   }
   .artists {
     cursor: pointer;
-    &:hover {
+    & span:hover {
       color: ${(props) => props.theme.linkTextHover};
       text-decoration: underline;
     }
@@ -143,7 +145,7 @@ const StyledAlbum = styled.div`
         overflow: hidden;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 1;
-        &:hover {
+        & span:hover {
           text-decoration: underline;
           color: ${(props) => props.theme.linkTextHover};
         }
@@ -182,13 +184,22 @@ const StyledAlbum = styled.div`
       }
     }
   }
+  .album-info {
+    &:hover {
+      color: ${(props) => props.theme.linkTextHover};
+      text-decoration: underline;
+    }
+  }
+  .bottom-info {
+    color: ${(props) => props.theme.textSecondary};
+  }
 `;
 const AlbumDetails = () => {
   const [dataAlbum, setDataAlbum] = useState([]);
   useEffect(() => {
     async function fetchDataHome() {
       const res = await axios.get(
-        `https://music-player-pink.vercel.app/api/playlist?id=ZWZB96C7`
+        `https://music-player-pink.vercel.app/api/playlist?id=ZWZB96AI`
       );
       if (!res.data) return;
       const { data } = res.data;
@@ -199,8 +210,15 @@ const AlbumDetails = () => {
     }
     fetchDataHome();
   }, []);
-  const { title, thumbnailM, like, sortDescription, artistsNames, song } =
-    dataAlbum;
+  const {
+    title,
+    thumbnailM,
+    like,
+    sortDescription,
+    artists,
+    song,
+    contentLastUpdate,
+  } = dataAlbum;
   return (
     <StyledAlbum className="wrapper mt-[90px]">
       <div className="pt-5 album-container">
@@ -223,8 +241,18 @@ const AlbumDetails = () => {
                 <h5 className="album__content-title flex-wrap text-xl font-bold leading-[1.5] overflow-hidden text-ellipsis">
                   {title}
                 </h5>
-                <div className="release">Cập nhật: 26/6/2021</div>
-                <div className="artists">{artistsNames}</div>
+                <div className="release">
+                  Cập nhật: {ConvertDates(contentLastUpdate)}
+                </div>
+                <div className="artists">
+                  {artists?.length > 0 &&
+                    artists
+                      .map((item) => {
+                        const { name, id } = item;
+                        return <span key={id}>{name}</span>;
+                      })
+                      .reduce((prev, curr) => [prev, ", ", curr])}
+                </div>
                 <div className="like">
                   {ConvertNumber(like)} người yêu thích
                 </div>
