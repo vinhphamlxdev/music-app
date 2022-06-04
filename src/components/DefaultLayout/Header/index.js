@@ -1,20 +1,19 @@
 import React, { Fragment, useState } from "react";
 import styled from "styled-components";
-
 import { IoSettingsOutline } from "react-icons/io5";
-import { useSelector } from "react-redux";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import Search from "./Search";
 import ModalTheme from "~/themes/modalTheme";
+import { useSelector } from "react-redux";
 
 const StyledHeader = styled.div`
+  z-index: 300;
   color: ${(props) => props.theme.textColor};
   &.isSticky {
     box-shadow: 0 3px 5px rgb(0 0 0 / 10%);
     background-color: ${(props) => props.theme.layoutBg};
   }
-  z-index: 100;
   width: calc(100% - 240px);
 
   .btn-theme {
@@ -34,14 +33,12 @@ const StyledHeader = styled.div`
   }
 `;
 const Header = () => {
-  const newBgHeader = useSelector((state) => state.bgHeader);
   const [showModal, setShowModal] = useState(false);
-
   return (
     <Fragment>
       <StyledHeader
         className={`header justify-between flex items-center fixed top-0 right-0 h-[70px] px-7 ${
-          newBgHeader ? "isSticky" : ""
+          showModal ? "isSticky" : ""
         }`}
       >
         <Search></Search>

@@ -76,7 +76,6 @@ const MvArtist = ({ data = {} }) => {
                         artists
                           .map((item) => {
                             const { name, id } = item;
-                            console.log(name);
                             return (
                               <span
                                 key={id}

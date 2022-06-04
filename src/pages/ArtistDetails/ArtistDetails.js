@@ -39,7 +39,6 @@ const ArtistDetails = () => {
         `https://music-player-pink.vercel.app/api/artist?name=jack`
       );
       const { data } = res.data;
-      console.log(res.data);
       if (!data) return;
       setSingerData(data);
     } catch (err) {
@@ -49,7 +48,6 @@ const ArtistDetails = () => {
   useEffect(() => {
     fetchDataSinger();
   }, []);
-  console.log(singerData);
   const {
     name,
     thumbnail,

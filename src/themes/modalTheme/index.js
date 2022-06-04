@@ -5,6 +5,7 @@ import "tippy.js/dist/tippy.css";
 import styled from "styled-components";
 import Button from "~/components/button";
 import { LIST_THEME as ListThemeItem } from "./ListTheme";
+import { useSelector } from "react-redux";
 const StyledModal = styled.div`
   .portal-modal {
     background-color: ${(props) => props.theme.primaryBg};
@@ -57,8 +58,10 @@ const StyledModal = styled.div`
 `;
 const ModalTheme = ({ open = false, handleClose = () => {} }) => {
   const [themes, setThemes] = useState([]);
+  // const modalTheme = useSelector((state) => state.modalTheme);
+
   useEffect(() => {
-    if (!ListThemeItem) return null;
+    if (!ListThemeItem) return [];
     setThemes(ListThemeItem);
   }, []);
   const ChangeTheme = (theme) => {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { GiMicrophone } from "react-icons/gi";
 import styled from "styled-components";
 import { VscChromeRestore } from "react-icons/vsc";
@@ -6,6 +6,7 @@ import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import Icon from "~/components/Icon";
 import { FiRepeat } from "react-icons/fi";
+import axios from "axios";
 const StyledPlayer = styled.div`
   position: fixed;
   left: 0;
@@ -112,6 +113,10 @@ const StyledPlayer = styled.div`
   }
 `;
 const PlayerControl = () => {
+  const audioRef = useRef(null);
+  const playRef = useRef(null);
+
+  useEffect(() => {}, []);
   return (
     <StyledPlayer>
       <div className="player-container">
@@ -153,7 +158,7 @@ const PlayerControl = () => {
               <Icon control>
                 <i className="p-1 bi bi-skip-start-fill"></i>
               </Icon>
-              <button className="toggle-play">
+              <button ref={playRef} className="toggle-play">
                 <i className="p-1 bi bi-play-fill play-btn"></i>
               </button>
               <Icon control>
@@ -199,6 +204,7 @@ const PlayerControl = () => {
           </div>
         </div>
       </div>
+      <audio ref={audioRef}></audio>
     </StyledPlayer>
   );
 };

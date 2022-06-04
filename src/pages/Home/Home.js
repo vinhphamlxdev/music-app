@@ -15,11 +15,11 @@ import Partner from "~/components/partner";
 
 const Home = () => {
   const [dataHome, setDataHome] = useState([]);
-  const [page, setPage] = useState(5);
+
   useEffect(() => {
     async function fetchDataHome() {
       const res = await axios.get(
-        `https://music-player-pink.vercel.app/api/home?page=3`
+        `https://music-player-pink.vercel.app/api/home?page=1`
       );
       if (!res.data) return null;
       const {
@@ -27,7 +27,6 @@ const Home = () => {
       } = res.data;
 
       setDataHome(items);
-      console.log("Ket qua:", dataHome);
     }
     fetchDataHome();
   }, []);
