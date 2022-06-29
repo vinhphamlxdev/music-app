@@ -1,12 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { GiMicrophone } from "react-icons/gi";
 import styled from "styled-components";
 import { VscChromeRestore } from "react-icons/vsc";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import Icon from "~/components/Icon";
-import { FiRepeat } from "react-icons/fi";
 import axios from "axios";
+import Control from "./Control";
 const StyledPlayer = styled.div`
   position: fixed;
   left: 0;
@@ -113,10 +113,18 @@ const StyledPlayer = styled.div`
   }
 `;
 const PlayerControl = () => {
+  const [currentSong, setCurrentSong] = useState([]);
   const audioRef = useRef(null);
-  const playRef = useRef(null);
-
-  useEffect(() => {}, []);
+  const fetchDataSong = async () => {
+    const response = await axios.get(
+      `http://localhost:3000/api/song?id=ZZ768Z60`
+    );
+    if (!response.data) return;
+    console.log(response.data);
+  };
+  useEffect(() => {
+    fetchDataSong();
+  }, []);
   return (
     <StyledPlayer>
       <div className="player-container">
@@ -149,36 +157,7 @@ const PlayerControl = () => {
             </div>
           </div>
         </div>
-        <div className="player-control w-[40%] flex flex-col">
-          <div className="flex items-center justify-center">
-            <div className="inline-flex items-center ">
-              <Icon control>
-                <i className="p-1 bi bi-shuffle"></i>
-              </Icon>
-              <Icon control>
-                <i className="p-1 bi bi-skip-start-fill"></i>
-              </Icon>
-              <button ref={playRef} className="toggle-play">
-                <i className="p-1 bi bi-play-fill play-btn"></i>
-              </button>
-              <Icon control>
-                <i className="p-1 bi bi-skip-end-fill"></i>
-              </Icon>
-              <Icon control>
-                <i className="p-1 bi bi-arrow-repeat"></i>
-              </Icon>
-            </div>
-          </div>
-          <div className="w-full mt-[10px] flex items-center justify-center ">
-            <span className="current-time">03:20</span>
-            <div className="progress-area">
-              <div className="progress-bar after:absolute after:content[''] after:w-[14px] after:h-[14px] after:top-2/4 after:bg-inherit after:-translate-y-2/4"></div>
-            </div>
-            <div className="duration-time ml-[10px] text-xs min-w-[45px]">
-              04:30
-            </div>
-          </div>
-        </div>
+        <Control />
         <div className="w-[30%] flex justify-end">
           <div className="flex items-center justify-center">
             <Tippy content="Xem lời bài hát">
@@ -204,7 +183,10 @@ const PlayerControl = () => {
           </div>
         </div>
       </div>
-      <audio ref={audioRef}></audio>
+      <audio
+        ref={audioRef}
+        src="https://mp3-s1-zmp3.zmdcdn.me/7b7c9e59f81811464809/1795935714212339135?authen=exp=1654503033~acl=/7b7c9e59f81811464809/*~hmac=f26de1632041f8ff22ad702f9bb28ef2&fs=MTY1NDMzMDIzMzMzOXx3ZWJWNnwwfDQ0LjE5Mi43MC43NQ"
+      ></audio>
     </StyledPlayer>
   );
 };

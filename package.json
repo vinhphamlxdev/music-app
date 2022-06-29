@@ -23,7 +23,9 @@
     "styled-components": "^5.3.5",
     "swiper": "^8.1.5",
     "web-vitals": "^2.1.4",
-    "zingmp3-api-full": "^1.0.9"
+    "zingmp3-api": "^1.0.10",
+    "zingmp3-api-full": "^1.0.9",
+    "zingmp3-api-next": "^1.0.3"
   },
   "scripts": {
     "start": "react-app-rewired  start",

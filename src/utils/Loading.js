@@ -7,12 +7,12 @@ const StyledLoading = styled.div`
     border-top: transparent;
   }
 `;
-const Loading = () => {
+const Loading = ({ className }, ref) => {
   return (
-    <StyledLoading className="flex justify-center w-full">
+    <StyledLoading ref={ref} className="flex justify-center w-full">
       <div className="w-10 h-10 bg-transparent rounded-full loading animate-spin spiner border-t-transparent"></div>
     </StyledLoading>
   );
 };
 
-export default Loading;
+export default React.forwardRef(Loading);

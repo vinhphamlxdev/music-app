@@ -62,7 +62,6 @@ export const dynamicBlueTheme = {
   purplePrimary: "#3460f5",
   navigationText: "#dadada",
   settingIconText: "#d8d8d8",
-
   primaryBg: "#192f60",
   alphaBg: "hsla(0,0%,100%,0.1)",
   searchText: "#282828",
@@ -108,7 +107,6 @@ export const xoneTheme = {
   purplePrimary: "#7200a1",
   navigationText: "#a0a0a0",
   settingIconText: "#d8d8d8",
-
   primaryBg: "#282828",
   alphaBg: "hsla(0,0%,100%,0.1)",
   searchText: "#282828",

@@ -57,9 +57,12 @@ const StyledSectionSong = styled.div`
         overflow: hidden;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 1;
-        &:hover {
-          text-decoration: underline;
-          color: ${(props) => props.theme.linkTextHover};
+        .artists {
+          cursor: pointer;
+          & span:hover {
+            color: ${(props) => props.theme.linkTextHover};
+            text-decoration: underline;
+          }
         }
       }
       .media-content {
@@ -107,14 +110,8 @@ const SongSection = ({ data = {} }) => {
         <div className="h-[244px] has-scroll-bar play-list pl-5 w-full flex flex-col flex-1">
           {items.length > 0 &&
             items?.map((item, index) => {
-              const {
-                encodeId,
-                thumbnail,
-                artistsNames,
-                title,
-                album,
-                duration,
-              } = item;
+              const { encodeId, thumbnail, artists, title, album, duration } =
+                item;
               return (
                 <div key={encodeId} className="song-item">
                   <div className="flex rounded-md select-none p-[10px] items-center">
@@ -134,7 +131,15 @@ const SongSection = ({ data = {} }) => {
                           {title}
                         </div>
                         <div className="text-xs song__info-author">
-                          {artistsNames}
+                          <div className="artists">
+                            {artists?.length > 0 &&
+                              artists
+                                .map((item) => {
+                                  const { name, id } = item;
+                                  return <span key={id}>{name}</span>;
+                                })
+                                .reduce((prev, curr) => [prev, ", ", curr])}
+                          </div>
                         </div>
                       </div>
                     </div>

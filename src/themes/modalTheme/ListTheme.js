@@ -15,26 +15,29 @@ import dark from "~/assets/bg/dark.jpg";
 import purple from "~/assets/bg/purple.jpg";
 import blue from "~/assets/bg/blue.jpg";
 import blueLight from "~/assets/bg/blueLight.jpg";
-
 export const LIST_THEME = [
   {
     id: 1,
-    type: "Dynamic",
+    header: "Dynamic",
 
     data: [
       {
+        indexTheme: 1,
         image: `${LonDon}`,
         title: "London",
       },
       {
+        indexTheme: 2,
         image: `${dynamicLightDark}`,
         title: "Sáng Tối",
       },
       {
+        indexTheme: 3,
         image: `${dynamicBlue}`,
         title: "Xanh Da Trời",
       },
       {
+        indexTheme: 4,
         image: `${dynamicPink}`,
         title: "Hồng",
       },
@@ -42,18 +45,20 @@ export const LIST_THEME = [
   },
   {
     id: 2,
-
-    type: "Chủ đề",
+    header: "Chủ đề",
     data: [
       {
+        indexTheme: 5,
         image: `${xoneThumbn}`,
         title: "XONE",
       },
       {
+        indexTheme: 6,
         image: `${zma}`,
         title: "Zing Music Awards",
       },
       {
+        indexTheme: 7,
         image: `${eiffel}`,
         title: "Tháp Eiffel",
       },
@@ -62,29 +67,35 @@ export const LIST_THEME = [
   {
     id: 3,
 
-    type: "Nghệ sĩ",
+    header: "Nghệ sĩ",
     data: [
       {
+        indexTheme: 8,
         image: `${IU}`,
         title: "IU",
       },
       {
+        indexTheme: 9,
         image: `${jiChangWook}`,
         title: "Ji Chang Wook",
       },
       {
+        indexTheme: 10,
         image: `${lisa}`,
         title: "Lisa",
       },
       {
+        indexTheme: 11,
         image: `${jennie}`,
         title: "Jennie Kim",
       },
       {
+        indexTheme: 12,
         image: `${jisoo}`,
         title: "Jisoo",
       },
       {
+        indexTheme: 13,
         image: `${rose}`,
         title: "Rosé",
       },
@@ -92,21 +103,25 @@ export const LIST_THEME = [
   },
   {
     id: 4,
-    type: "Màu Tối",
+    header: "Màu Tối",
     data: [
       {
+        indexTheme: 14,
         image: `${dark}`,
         title: "Dark",
       },
       {
+        indexTheme: 15,
         image: `${purple}`,
         title: "Tím",
       },
       {
+        indexTheme: 16,
         image: `${blue}`,
         title: "Xanh Đậm",
       },
       {
+        indexTheme: 17,
         image: `${blueLight}`,
         title: "Xanh Biển",
       },

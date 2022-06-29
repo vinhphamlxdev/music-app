@@ -12,28 +12,7 @@ export const GlobalClasses = css`
   h4 {
     color: ${(props) => props.theme.textPrimary};
   }
-  .wrapper {
-    position: relative;
-    top: 0;
-    right: 0;
-    width: calc(100% - 240px);
-    overflow: hidden overlay;
-    margin-left: auto;
-    width: 100%;
-    padding-left: 32px;
-    padding-right: 32px;
-    padding-top: 90px;
-    padding-bottom: 140px;
-    ${
-      "" /* &::-webkit-scrollbar {
-      width: 6px;
-    }
-    &::-webkit-scrollbar-thumb {
-      border-radius: 8px;
-      background-color: ${(props) => props.theme.alphaBg};
-    } */
-    }
-  }
+
   .container-layout {
     margin-top: 40px;
     display: flex;
@@ -67,9 +46,7 @@ export const GlobalClasses = css`
     -webkit-line-clamp: 2;
     font-weight: 400;
   }
-  .content {
-    width: 100%;
-  }
+
   .tippy-box {
     font-size: 12px;
   }

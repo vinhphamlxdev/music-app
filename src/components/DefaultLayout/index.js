@@ -19,7 +19,7 @@ const DefaultLayout = ({ children }) => {
       <Header></Header>
       <Sidebar></Sidebar>
       <PlayerControl></PlayerControl>
-      <div className="content ">{children}</div>
+      <>{children}</>
     </StyledWrapper>
   );
 };

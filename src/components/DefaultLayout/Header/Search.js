@@ -85,7 +85,7 @@ const Search = () => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          `https://music-player-pink.vercel.app/api/search?keyword=${encodeURIComponent(
+          `http://localhost:3000/api/search?keyword=${encodeURIComponent(
             debounced
           )}`
         );

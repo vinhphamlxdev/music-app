@@ -1,11 +1,13 @@
 import axios from "axios";
 import React, { Fragment, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import styled from "styled-components";
 import ArtistBanner from "~/components/artistBanner";
 import ArtistBiography from "~/components/artistBiography";
 import MvArtist from "~/components/mv";
 import Playlist from "~/components/playlist/Playlist";
+import WrapperLayout from "~/components/wrapperLayout";
 import SongSection from "./song";
 
 const StyledArtistDetails = styled.div`
@@ -33,10 +35,11 @@ const StyledArtistDetails = styled.div`
 `;
 const ArtistDetails = () => {
   const [singerData, setSingerData] = useState([]);
+  const dispatch = useDispatch();
   const fetchDataSinger = async () => {
     try {
       const res = await axios.get(
-        `https://music-player-pink.vercel.app/api/artist?name=jack`
+        `http://localhost:3000/api/artist?name=huongly`
       );
       const { data } = res.data;
       if (!data) return;
@@ -61,37 +64,41 @@ const ArtistDetails = () => {
   } = singerData;
   return (
     <Fragment>
-      <StyledArtistDetails className="wrapper">
-        <ArtistBiography
-          data={{
-            name,
-            thumbnail,
-            sortBiography,
-            totalFollow,
-            topAlbum,
-            awards,
-            biography,
-            thumbnailM,
-          }}
-        ></ArtistBiography>
-        {sections?.map((item, index) => {
-          const { sectionType, title } = item;
-          if (sectionType === "song") {
-            return (
-              <SongSection
-                key={`${title}${index}`}
-                data={{ ...item }}
-              ></SongSection>
-            );
-          } else if (sectionType === "playlist") {
-            return <Playlist key={`${title}${index}`} data={{ ...item }} />;
-          } else if (sectionType === "artist") {
-            return <ArtistBanner key={`${title}${index}`} data={{ ...item }} />;
-          } else if (sectionType === "video") {
-            return <MvArtist key={`${title}${index}`} data={{ ...item }} />;
-          }
-        })}
-      </StyledArtistDetails>
+      <WrapperLayout>
+        <StyledArtistDetails>
+          <ArtistBiography
+            data={{
+              name,
+              thumbnail,
+              sortBiography,
+              totalFollow,
+              topAlbum,
+              awards,
+              biography,
+              thumbnailM,
+            }}
+          ></ArtistBiography>
+          {sections?.map((item, index) => {
+            const { sectionType, title } = item;
+            if (sectionType === "song") {
+              return (
+                <SongSection
+                  key={`${title}${index}`}
+                  data={{ ...item }}
+                ></SongSection>
+              );
+            } else if (sectionType === "playlist") {
+              return <Playlist key={`${title}${index}`} data={{ ...item }} />;
+            } else if (sectionType === "artist") {
+              return (
+                <ArtistBanner key={`${title}${index}`} data={{ ...item }} />
+              );
+            } else if (sectionType === "video") {
+              return <MvArtist key={`${title}${index}`} data={{ ...item }} />;
+            }
+          })}
+        </StyledArtistDetails>
+      </WrapperLayout>
     </Fragment>
   );
 };

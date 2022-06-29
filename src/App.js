@@ -5,27 +5,12 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "~/styles/GlobalStyles";
 import { publicRoutes } from "./routes";
 import DefaultLayout from "./components/DefaultLayout";
-import {
-  lonDonTheme,
-  lightDarkTheme,
-  dynamicBlueTheme,
-  dynamicPink,
-  xoneTheme,
-  zmaTheme,
-  eiffelTheme,
-  iuTheme,
-  lisaTheme,
-  jennieTheme,
-  jisooTheme,
-  roseTheme,
-  purpleTheme,
-  jiChangWookTheme,
-  darkTheme,
-} from "./themes/ThemeData";
+import { useSelector } from "react-redux";
 function App() {
+  const { theme } = useSelector((state) => state.global);
   return (
     <Fragment>
-      <ThemeProvider theme={roseTheme}>
+      <ThemeProvider theme={theme}>
         <GlobalStyles></GlobalStyles>
         <Routes>
           {publicRoutes.map((route, index) => {

@@ -10,6 +10,7 @@ import ConvertNumber from "~/utils/ConvertNumber";
 import SongAlbum from "./songAlbum";
 import ConvertDates from "~/utils/ConvertDates";
 import ArtistBanner from "~/components/artistBanner";
+import WrapperLayout from "~/components/wrapperLayout";
 const StyledAlbum = styled.div`
   .album-content {
     display: flex;
@@ -199,7 +200,7 @@ const AlbumDetails = () => {
   useEffect(() => {
     async function fetchDataHome() {
       const res = await axios.get(
-        `https://music-player-pink.vercel.app/api/playlist?id=ZWZB96AI`
+        `https://server-zing.vercel.app/api/playlist?id=ZWZB96AI`
       );
       if (!res.data) return;
       const { data } = res.data;
@@ -220,70 +221,72 @@ const AlbumDetails = () => {
     contentLastUpdate,
   } = dataAlbum;
   return (
-    <StyledAlbum className="wrapper mt-[90px]">
-      <div className="pt-5 album-container">
-        <div className="album-content">
-          <div className="relative flex-shrink-0 w-[300px]">
-            <div className="relative overflow-hidden rounded-lg album-card-image">
-              <div className="z-thumb w-full h-[300px] cursor-pointer relative overlay">
-                <img
-                  className="object-cover w-full transition-all duration-700 rounded-lg "
-                  src={thumbnailM}
-                  alt=""
-                />
-                <div className="cursor-pointer invisible  text-center border  border-white w-[45px] h-[45px] rounded-full center album-action">
-                  <i className=" text-[30px] leading-[45px]   bi bi-play-fill text-white"></i>
+    <WrapperLayout>
+      <StyledAlbum className="wrapper mt-[90px]">
+        <div className="pt-5 album-container">
+          <div className="album-content">
+            <div className="relative flex-shrink-0 w-[300px]">
+              <div className="relative overflow-hidden rounded-lg album-card-image">
+                <div className="z-thumb w-full h-[300px] cursor-pointer relative overlay">
+                  <img
+                    className="object-cover w-full transition-all duration-700 rounded-lg "
+                    src={thumbnailM}
+                    alt=""
+                  />
+                  <div className="cursor-pointer invisible  text-center border  border-white w-[45px] h-[45px] rounded-full center album-action">
+                    <i className=" text-[30px] leading-[45px]   bi bi-play-fill text-white"></i>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="flex flex-col justify-center mt-3">
-              <div className="text-center">
-                <h5 className="album__content-title flex-wrap text-xl font-bold leading-[1.5] overflow-hidden text-ellipsis">
-                  {title}
-                </h5>
-                <div className="release">
-                  Cập nhật: {ConvertDates(contentLastUpdate)}
+              <div className="flex flex-col justify-center mt-3">
+                <div className="text-center">
+                  <h5 className="album__content-title flex-wrap text-xl font-bold leading-[1.5] overflow-hidden text-ellipsis">
+                    {title}
+                  </h5>
+                  <div className="release">
+                    Cập nhật: {ConvertDates(contentLastUpdate)}
+                  </div>
+                  <div className="artists">
+                    {artists?.length > 0 &&
+                      artists
+                        .map((item) => {
+                          const { name, id } = item;
+                          return <span key={id}>{name}</span>;
+                        })
+                        .reduce((prev, curr) => [prev, ", ", curr])}
+                  </div>
+                  <div className="like">
+                    {ConvertNumber(like)} người yêu thích
+                  </div>
                 </div>
-                <div className="artists">
-                  {artists?.length > 0 &&
-                    artists
-                      .map((item) => {
-                        const { name, id } = item;
-                        return <span key={id}>{name}</span>;
-                      })
-                      .reduce((prev, curr) => [prev, ", ", curr])}
-                </div>
-                <div className="like">
-                  {ConvertNumber(like)} người yêu thích
-                </div>
-              </div>
-              <div className="flex flex-col justify-center mt-4 actions">
-                <div className="flex justify-center">
-                  <Button large leftIcon={<BsFillPlayFill />}>
-                    TIẾP TỤC PHÁT
-                  </Button>
-                </div>
-                <div className="mt-4 ">
+                <div className="flex flex-col justify-center mt-4 actions">
                   <div className="flex justify-center">
-                    <Tippy content="Xóa khỏi thư viện">
-                      <Icon className="add-library ">
-                        {<BsFillHeartFill className="text-inherit " />}
-                      </Icon>
-                    </Tippy>
-                    <Tippy content="Khác">
-                      <Icon className="add-library dot-btn ">
-                        {<BsThreeDots className="text-inherit " />}
-                      </Icon>
-                    </Tippy>
+                    <Button large leftIcon={<BsFillPlayFill />}>
+                      TIẾP TỤC PHÁT
+                    </Button>
+                  </div>
+                  <div className="mt-4 ">
+                    <div className="flex justify-center">
+                      <Tippy content="Xóa khỏi thư viện">
+                        <Icon className="add-library ">
+                          {<BsFillHeartFill className="text-inherit " />}
+                        </Icon>
+                      </Tippy>
+                      <Tippy content="Khác">
+                        <Icon className="add-library dot-btn ">
+                          {<BsThreeDots className="text-inherit " />}
+                        </Icon>
+                      </Tippy>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            <SongAlbum title={sortDescription} data={song} />
           </div>
-          <SongAlbum title={sortDescription} data={song} />
         </div>
-      </div>
-    </StyledAlbum>
+      </StyledAlbum>
+    </WrapperLayout>
   );
 };
 

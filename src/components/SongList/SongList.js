@@ -136,9 +136,10 @@ const StyledSong = styled.div`
 `;
 const SongList = () => {
   const [top100, setTop100] = useState([]);
+
   const handleGetTop100 = async () => {
     const res = await axios.get(
-      `https://music-player-pink.vercel.app/api/chart-home`
+      `https://server-zing.vercel.app/api/chart-home`
     );
     if (!res) return null;
     const {

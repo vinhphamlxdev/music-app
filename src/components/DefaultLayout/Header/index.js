@@ -5,7 +5,8 @@ import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import Search from "./Search";
 import ModalTheme from "~/themes/modalTheme";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setShowModalTheme } from "~/redux-toolkit/global/globalSlice";
 
 const StyledHeader = styled.div`
   z-index: 300;
@@ -33,19 +34,20 @@ const StyledHeader = styled.div`
   }
 `;
 const Header = () => {
-  const [showModal, setShowModal] = useState(false);
+  const dispatch = useDispatch();
+  const { isSticky } = useSelector((state) => state.global);
   return (
     <Fragment>
       <StyledHeader
         className={`header justify-between flex items-center fixed top-0 right-0 h-[70px] px-7 ${
-          showModal ? "isSticky" : ""
+          isSticky ? "isSticky" : ""
         }`}
       >
         <Search></Search>
         <div className="flex">
           <Tippy content="Chủ đề">
             <button
-              onClick={() => setShowModal(true)}
+              onClick={() => dispatch(setShowModalTheme(true))}
               className="flex items-center justify-center w-10 h-10 mr-3 rounded-full cursor-pointer btn-theme "
             >
               <svg width="20" height="20" viewBox="0 0 20 20">
@@ -226,8 +228,7 @@ const Header = () => {
         </div>
       </StyledHeader>
       <ModalTheme
-        open={showModal}
-        handleClose={() => setShowModal(false)}
+        handleClose={() => dispatch(setShowModalTheme(false))}
       ></ModalTheme>
     </Fragment>
   );

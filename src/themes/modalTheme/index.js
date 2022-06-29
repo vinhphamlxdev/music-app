@@ -5,7 +5,30 @@ import "tippy.js/dist/tippy.css";
 import styled from "styled-components";
 import Button from "~/components/button";
 import { LIST_THEME as ListThemeItem } from "./ListTheme";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setShowModalTheme,
+  setThemeBg,
+} from "~/redux-toolkit/global/globalSlice";
+import {
+  blueLightTheme,
+  blueTheme,
+  darkTheme,
+  dynamicBlueTheme,
+  dynamicPink,
+  eiffelTheme,
+  iuTheme,
+  jennieTheme,
+  jiChangWookTheme,
+  jisooTheme,
+  lightDarkTheme,
+  lisaTheme,
+  lonDonTheme,
+  purpleTheme,
+  roseTheme,
+  xoneTheme,
+  zmaTheme,
+} from "~/themes/ThemeData";
 const StyledModal = styled.div`
   .portal-modal {
     background-color: ${(props) => props.theme.primaryBg};
@@ -57,22 +80,103 @@ const StyledModal = styled.div`
   }
 `;
 const ModalTheme = ({ open = false, handleClose = () => {} }) => {
+  const { showModalTheme } = useSelector((state) => state.global);
+  console.log("show modal theme:", showModalTheme);
   const [themes, setThemes] = useState([]);
-  // const modalTheme = useSelector((state) => state.modalTheme);
-
+  const [currentTheme, setCurrentTheme] = useState({});
+  const dispatch = useDispatch();
   useEffect(() => {
     if (!ListThemeItem) return [];
     setThemes(ListThemeItem);
   }, []);
-  const ChangeTheme = (theme) => {
-    console.log(theme);
+  const applyTheme = (theme) => {
+    if (theme === 1) {
+      setCurrentTheme(lonDonTheme);
+    } else if (theme === 2) {
+      setCurrentTheme(lightDarkTheme);
+    } else if (theme === 3) {
+      setCurrentTheme(dynamicBlueTheme);
+    } else if (theme === 4) {
+      setCurrentTheme(dynamicPink);
+    } else if (theme === 5) {
+      setCurrentTheme(xoneTheme);
+    } else if (theme === 6) {
+      setCurrentTheme(zmaTheme);
+    } else if (theme === 7) {
+      setCurrentTheme(eiffelTheme);
+    } else if (theme === 8) {
+      setCurrentTheme(iuTheme);
+    } else if (theme === 9) {
+      setCurrentTheme(jiChangWookTheme);
+    } else if (theme === 10) {
+      setCurrentTheme(lisaTheme);
+    } else if (theme === 11) {
+      setCurrentTheme(jennieTheme);
+    } else if (theme === 12) {
+      setCurrentTheme(jisooTheme);
+    } else if (theme === 13) {
+      setCurrentTheme(roseTheme);
+    } else if (theme === 14) {
+      setCurrentTheme(darkTheme);
+    } else if (theme === 15) {
+      setCurrentTheme(purpleTheme);
+    } else if (theme === 16) {
+      setCurrentTheme(blueTheme);
+    } else if (theme === 17) {
+      setCurrentTheme(blueLightTheme);
+    }
+    dispatch(setThemeBg(currentTheme));
+    dispatch(setShowModalTheme(false));
   };
+  const previewTheme = (theme) => {
+    if (theme === 1) {
+      setCurrentTheme(lonDonTheme);
+    } else if (theme === 2) {
+      setCurrentTheme(lightDarkTheme);
+    } else if (theme === 3) {
+      setCurrentTheme(dynamicBlueTheme);
+    } else if (theme === 4) {
+      setCurrentTheme(dynamicPink);
+    } else if (theme === 5) {
+      setCurrentTheme(xoneTheme);
+    } else if (theme === 6) {
+      setCurrentTheme(zmaTheme);
+    } else if (theme === 7) {
+      setCurrentTheme(eiffelTheme);
+    } else if (theme === 8) {
+      setCurrentTheme(iuTheme);
+    } else if (theme === 9) {
+      setCurrentTheme(jiChangWookTheme);
+    } else if (theme === 10) {
+      setCurrentTheme(lisaTheme);
+    } else if (theme === 11) {
+      setCurrentTheme(jennieTheme);
+    } else if (theme === 12) {
+      setCurrentTheme(jisooTheme);
+    } else if (theme === 13) {
+      setCurrentTheme(roseTheme);
+    } else if (theme === 14) {
+      setCurrentTheme(darkTheme);
+    } else if (theme === 15) {
+      setCurrentTheme(purpleTheme);
+    } else if (theme === 16) {
+      setCurrentTheme(blueTheme);
+    } else if (theme === 17) {
+      setCurrentTheme(blueLightTheme);
+    }
+    dispatch(setThemeBg(currentTheme));
+    dispatch(setShowModalTheme(true));
+  };
+  useEffect(() => {
+    applyTheme();
+    previewTheme();
+  }, [currentTheme, dispatch]);
   if (typeof document === "undefined")
     return <div className="modal-theme"></div>;
   return ReactDOM.createPortal(
     <StyledModal
       className={`modal-theme flex  w-full h-full fixed  inset-0 transition-all duration-700  z-[9999] ${
-        open ? "" : "hidden"
+        showModalTheme ? "" : "hidden"
       }`}
     >
       <div
@@ -93,7 +197,7 @@ const ModalTheme = ({ open = false, handleClose = () => {} }) => {
           {themes.map((theme, index) => (
             <div key={theme.id} className="flex flex-col">
               <h4 className="theme-title mb-[10px] font-semibold block capitalize">
-                {theme.type}
+                {theme.header}
               </h4>
               <div className="grid gap-x-[14px] grid-cols-6">
                 {theme.data.map((item, index) => (
@@ -106,14 +210,15 @@ const ModalTheme = ({ open = false, handleClose = () => {} }) => {
                           alt=""
                         />
                         <div className="absolute gap-y-[10px] z-50 flex flex-col invisible  theme-action top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4">
-                          <Button
-                            onClick={() => {
-                              ChangeTheme(item.title);
-                            }}
-                          >
+                          <Button onClick={() => applyTheme(item.indexTheme)}>
                             Áp Dụng
                           </Button>
-                          <Button preview>Xem Trước</Button>
+                          <Button
+                            preview
+                            onClick={() => previewTheme(item.indexTheme)}
+                          >
+                            Xem Trước
+                          </Button>
                         </div>
                       </div>
                     </div>
