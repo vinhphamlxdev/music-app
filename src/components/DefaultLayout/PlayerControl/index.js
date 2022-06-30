@@ -17,6 +17,7 @@ const StyledPlayer = styled.div`
   background-repeat: repeat-x;
   background-size: 1920px auto;
   background-color: ${(props) => props.theme.layoutBg};
+  background-image: url(${(props) => props.theme.bgPlayer});
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 999;
   .player-container {

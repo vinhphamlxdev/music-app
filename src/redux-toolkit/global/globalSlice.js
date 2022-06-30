@@ -4,7 +4,7 @@ export const globalSlice = createSlice({
   name: "global",
   initialState: {
     isSticky: false,
-    theme: lonDonTheme,
+    theme: darkTheme,
     showModalTheme: false,
   },
   reducers: {

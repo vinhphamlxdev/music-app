@@ -10,6 +10,7 @@ import { BsStar } from "react-icons/bs";
 import { IoIosRadio } from "react-icons/io";
 import { SiYoutubemusic } from "react-icons/si";
 import Button from "~/components/button";
+import logo from "~/assets/image/logo.svg";
 const StyledSidebar = styled.div`
   background-color: ${(props) => props.theme.sidebarBg};
   height: calc(100% - 90px);
@@ -45,7 +46,12 @@ const StyledSidebar = styled.div`
 `;
 const Sidebar = () => {
   return (
-    <StyledSidebar className="py-10 relative top-0 left-0  flex flex-col w-[240px]">
+    <StyledSidebar className="pb-10 pt-5 relative top-0 left-0  flex flex-col w-[240px]">
+      <div className="zingmp3-brand w-[240px] h-[70px] flex items-center px-7">
+        <div className="w-[120px] h-10 relative">
+          <img className="object-cover w-full" src={logo} alt="" />
+        </div>
+      </div>
       <div className="mb-4 sidebar-navbar-list relative after:absolute after:content=['']">
         <div className="flex items-center px-6 py-2 font-semibold border-l border-transparent cursor-pointer sidebar-item">
           <BiHomeAlt className="text-xl font-semibold text-inherit"></BiHomeAlt>

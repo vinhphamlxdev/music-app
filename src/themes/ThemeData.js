@@ -1,6 +1,7 @@
 import LonDon from "~/assets/bgTheme/london.jpg";
 import xoneThumbn from "~/assets/bgTheme/xoneBg.jpg";
 import zma from "~/assets/bgTheme/zma.svg";
+import zmaPlayer from "~/assets/bg/zmaPlayer.png";
 import eiffel from "~/assets/bgTheme/eiffel.jpg";
 import IU from "~/assets/bgTheme/iu.jpg";
 import jiChangWook from "~/assets/bgTheme/jiChangWook.jpg";
@@ -8,7 +9,6 @@ import lisa from "~/assets/bgTheme/lisa.jpg";
 import jennie from "~/assets/bgTheme/jennie.jpg";
 import jisoo from "~/assets/bgTheme/jisoo.jpg";
 import rose from "~/assets/bgTheme/rose.jpg";
-
 export const lonDonTheme = {
   bgImage: `${LonDon}`,
   layoutBg: "#061d50",
@@ -17,6 +17,7 @@ export const lonDonTheme = {
   linkTextHover: "#dadada",
   purplePrimary: "#3460f5",
   navigationText: "#fff",
+  settingIconText: "#d8d8d8",
   primaryBg: "#192f60",
   alphaBg: "hsla(0,0%,100%,0.1)",
   searchText: "#eee",
@@ -47,7 +48,7 @@ export const lightDarkTheme = {
   borderSecondary: "rgba(0,0,0,0.05)",
   textSecondary: "rgba(0,0,0,0.6)",
   playerBg: "#fff",
-  borderPlayer: "#f2f2f2",
+  borderPlayer: "rgba(0,0,0,0.05)",
   thumbnailPlayer: "hsla(0,0%,100%,0.8)",
   scrollBg: "linear-gradient(117deg,#5a4be7,#c86dd7 102%)",
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
@@ -123,6 +124,7 @@ export const xoneTheme = {
 
 export const zmaTheme = {
   bgImage: `${zma}`,
+  bgPlayer: `${zmaPlayer}`,
   layoutBg: "#1e1e1e",
   sidebarBg: "hsla(0,0%,100%,0.05);",
   textPrimary: "#fff",
@@ -130,8 +132,7 @@ export const zmaTheme = {
   purplePrimary: "#7200a1",
   navigationText: "#fff",
   settingIconText: "#d8d8d8;",
-
-  primaryBg: "#282828",
+  primaryBg: "#6a39af",
   alphaBg: "hsla(0,0%,100%,0.1)",
   searchText: "#282828",
   tabActiveBg: "hsla(0,0%,100%,0.3)",
@@ -154,14 +155,13 @@ export const eiffelTheme = {
   purplePrimary: "#7200a1",
   navigationText: "#fff",
   settingIconText: "#d8d8d8;",
-
   primaryBg: "#282828",
   alphaBg: "hsla(0,0%,100%,0.1)",
   searchText: "#282828",
   tabActiveBg: "hsla(0,0%,100%,0.3)",
   borderSecondary: "hsla(0,0%,100%,0.05)",
   textSecondary: "hsla(0,0%,100%,0.5)",
-  playerBg: "rgba(0,0,0,0.2)",
+  playerBg: "#282828",
   borderPlayer: "hsla(0,0%,100%,0.1)",
   thumbnailPlayer: "hsla(0,0%,100%,0.8)",
   scrollBg: "linear-gradient(117deg,#5a4be7,#c86dd7 102%)",
@@ -176,8 +176,7 @@ export const iuTheme = {
   linkTextHover: "#409abc",
   purplePrimary: "#409abc",
   navigationText: "#32323d",
-  settingIconText: "#d8d8d8;",
-
+  settingIconText: "#495057",
   primaryBg: "#fff",
   alphaBg: "rgba(0,0,0,0.05)",
   searchText: "#282828",
@@ -199,15 +198,14 @@ export const jiChangWookTheme = {
   linkTextHover: "#239292",
   purplePrimary: "#239292",
   navigationText: "#32323d",
-  settingIconText: "#d8d8d8;",
-
+  settingIconText: "#495057",
   primaryBg: "#fff",
   alphaBg: "hsla(0,0%,100%,0.3)",
   searchText: "#282828",
   tabActiveBg: "hsla(0,0%,100%,0.3)",
   borderSecondary: "rgba(0,0,0,0.05)",
   textSecondary: "#696969",
-  playerBg: "#b4d0d0",
+  playerBg: "#b2d8db",
   borderPlayer: "#abc5c5",
   thumbnailPlayer: "hsla(0,0%,100%,0.8)",
   scrollBg: "rgb(143, 143, 143)",
@@ -222,8 +220,7 @@ export const lisaTheme = {
   linkTextHover: "#ea7aa0",
   purplePrimary: "#ea7aa0",
   navigationText: "#32323d",
-  settingIconText: "#d8d8d8;",
-
+  settingIconText: "#495057",
   primaryBg: "#fff",
   alphaBg: "rgba(0,0,0,0.05)",
   searchText: "#282828",
@@ -245,8 +242,7 @@ export const jennieTheme = {
   linkTextHover: "#2a5e6b",
   purplePrimary: "#346875",
   navigationText: "#32323d",
-  settingIconText: "#d8d8d8;",
-
+  settingIconText: "#495057",
   primaryBg: "#e2e7f5",
   alphaBg: "rgba(0,0,0,0.05)",
   searchText: "#282828",
@@ -268,8 +264,7 @@ export const jisooTheme = {
   linkTextHover: "#9c32ca",
   purplePrimary: "#6b3483",
   navigationText: "#32323d",
-  settingIconText: "#d8d8d8;",
-
+  settingIconText: "#495057",
   primaryBg: "#fff",
   alphaBg: "rgba(0,0,0,0.05)",
   searchText: "#282828",
@@ -292,7 +287,7 @@ export const roseTheme = {
   linkTextHover: "#6e8ffb",
   purplePrimary: "#3460f5",
   navigationText: "#dadada",
-  settingIconText: " #d8d8d8",
+  settingIconText: "#d8d8d8",
   primaryBg: "#192f60",
   alphaBg: "hsla(0,0%,100%,0.1)",
   searchText: "#eee",
@@ -338,6 +333,7 @@ export const purpleTheme = {
   linkTextHover: "#fff",
   purplePrimary: "#7200a1",
   navigationText: "#fff",
+  settingIconText: "#d8d8d8",
   primaryBg: "#432275",
   alphaBg: "hsla(0,0%,100%,0.1)",
   searchText: "#282828",
@@ -360,6 +356,7 @@ export const blueTheme = {
   linkTextHover: "#fff",
   purplePrimary: "#3460f5",
   navigationText: "#fff",
+  settingIconText: "#d8d8d8",
   primaryBg: "#192f60",
   alphaBg: "hsla(0,0%,100%,0.1)",
   searchText: "#282828",
@@ -382,6 +379,7 @@ export const blueLightTheme = {
   linkTextHover: "#fff",
   purplePrimary: "#3460f5",
   navigationText: "#fff",
+  settingIconText: "#d8d8d8",
   primaryBg: "#274a78",
   alphaBg: "hsla(0,0%,100%,0.1)",
   searchText: "#282828",

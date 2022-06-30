@@ -80,10 +80,11 @@ const StyledModal = styled.div`
   }
 `;
 const ModalTheme = ({ open = false, handleClose = () => {} }) => {
-  const { showModalTheme } = useSelector((state) => state.global);
+  const { showModalTheme, theme } = useSelector((state) => state.global);
   console.log("show modal theme:", showModalTheme);
+  console.log(" theme background:", theme);
   const [themes, setThemes] = useState([]);
-  const [currentTheme, setCurrentTheme] = useState({});
+  const [currentTheme, setCurrentTheme] = useState(lonDonTheme);
   const dispatch = useDispatch();
   useEffect(() => {
     if (!ListThemeItem) return [];
