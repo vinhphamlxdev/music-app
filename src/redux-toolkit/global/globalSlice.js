@@ -8,18 +8,15 @@ export const globalSlice = createSlice({
     showModalTheme: false,
   },
   reducers: {
-    setBgHeader: (state, action) => ({
-      ...state,
-      isSticky: action.payload,
-    }),
-    setThemeBg: (state, action) => ({
-      ...state,
-      theme: action.payload,
-    }),
-    setShowModalTheme: (state, action) => ({
-      ...state,
-      showModalTheme: action.payload,
-    }),
+    setBgHeader: (state, action) => {
+      state.isSticky = action.payload;
+    },
+    setThemeBg: (state, action) => {
+      state.theme = action.payload;
+    },
+    setShowModalTheme: (state, action) => {
+      state.showModalTheme = action.payload;
+    },
   },
 });
 export const { setBgHeader, setThemeBg, setShowModalTheme } =

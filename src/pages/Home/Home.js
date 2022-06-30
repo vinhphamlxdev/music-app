@@ -39,17 +39,6 @@ const Home = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     fetchDataHome(pageNumber);
-    if (containerElm.current) {
-      containerElm.current.onscroll = () => {
-        const scrollValue =
-          containerElm.current.scrollY || containerElm.current.scrollTop;
-        if (scrollValue > 10) {
-          dispatch(setBgHeader(true));
-        } else {
-          dispatch(setBgHeader(false));
-        }
-      };
-    }
   }, [pageNumber]);
   const loadMore = () => {
     setPageNumber((prevPage) => prevPage + 1);
@@ -76,7 +65,7 @@ const Home = () => {
     }
   }, [loading, num]);
   return (
-    <WrapperLayout ref={containerElm}>
+    <WrapperLayout>
       {dataHome.map((item, index) => {
         const { sectionType, sectionId } = item;
 

@@ -168,9 +168,10 @@ const ModalTheme = ({ open = false, handleClose = () => {} }) => {
     dispatch(setShowModalTheme(true));
   };
   useEffect(() => {
-    applyTheme();
     previewTheme();
-  }, [currentTheme, dispatch]);
+    applyTheme();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentTheme]);
   if (typeof document === "undefined")
     return <div className="modal-theme"></div>;
   return ReactDOM.createPortal(
@@ -181,7 +182,7 @@ const ModalTheme = ({ open = false, handleClose = () => {} }) => {
     >
       <div
         onClick={handleClose}
-        className="absolute inset-0 bg-black opacity-60 overlay "
+        className="absolute inset-0 bg-black opacity-60 "
       ></div>
       <div className="w-[70vw] inset-0 m-auto portal-modal max-w-[900px] pb-5">
         <Tippy interactive content="Đóng" placement="top">

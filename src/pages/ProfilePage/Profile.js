@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import Top from "~/components/ListTop100";
 import SongList from "~/components/SongList/SongList";
+import WrapperLayout from "~/components/wrapperLayout";
 
 const Profile = () => {
   const handleFetchDataProfile = async () => {
@@ -13,10 +14,10 @@ const Profile = () => {
     handleFetchDataProfile();
   });
   return (
-    <div className="wrapper">
+    <WrapperLayout>
       <Top></Top>
       <SongList></SongList>
-    </div>
+    </WrapperLayout>
   );
 };
 

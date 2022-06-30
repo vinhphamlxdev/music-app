@@ -1,5 +1,9 @@
 import React from "react";
+import { useEffect } from "react";
+import { useRef } from "react";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import { setBgHeader } from "~/redux-toolkit/global/globalSlice";
 
 const StyledWrapper = styled.div`
   position: relative;
@@ -27,8 +31,22 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const WrapperLayout = ({ children }, ref) => {
-  return <StyledWrapper ref={ref}>{children}</StyledWrapper>;
+const WrapperLayout = ({ children }) => {
+  const dispatch = useDispatch();
+  const containerRef = useRef(null);
+  useEffect(() => {
+    const handleScroll = (e) => {
+      const scrollValue = e.target.scrollTop;
+      scrollValue > 10
+        ? dispatch(setBgHeader(true))
+        : dispatch(setBgHeader(false));
+    };
+    const containerElm = containerRef.current;
+    containerElm.addEventListener("scroll", handleScroll);
+    return () => containerElm.removeEventListener("scroll", handleScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  return <StyledWrapper ref={containerRef}>{children}</StyledWrapper>;
 };
 
-export default React.forwardRef(WrapperLayout);
+export default WrapperLayout;
