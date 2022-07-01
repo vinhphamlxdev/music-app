@@ -30,6 +30,7 @@ export const lonDonTheme = {
   scrollBg: "linear-gradient(117deg,#5a4be7,#c86dd7 102%)",
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
   boxItemBg: "hsla(0,0%,100%,0.1)",
+  borderPrimary: "hsla(0,0%,100%,0.1)",
 };
 
 export const lightDarkTheme = {
@@ -53,6 +54,7 @@ export const lightDarkTheme = {
   scrollBg: "linear-gradient(117deg,#5a4be7,#c86dd7 102%)",
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
   boxItemBg: "hsla(0,0%,100%,0.1)",
+  borderPrimary: "hsla(0,0%,100%,0.1)",
 };
 export const dynamicBlueTheme = {
   bgImage: "",
@@ -75,6 +77,7 @@ export const dynamicBlueTheme = {
   scrollBg: "linear-gradient(117deg,#5a4be7,#c86dd7 102%)",
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
   boxItemBg: "hsla(0,0%,100%,0.1)",
+  borderPrimary: "hsla(0,0%,100%,0.1)",
 };
 export const dynamicPink = {
   bgImage: "",
@@ -97,6 +100,7 @@ export const dynamicPink = {
   scrollBg: "rgb(143, 143, 143)",
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
   boxItemBg: "hsla(0,0%,100%,0.1)",
+  borderPrimary: "hsla(0,0%,100%,0.1)",
 };
 
 export const xoneTheme = {
@@ -120,6 +124,7 @@ export const xoneTheme = {
   scrollBg: "linear-gradient(117deg,#5a4be7,#c86dd7 102%)",
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
   boxItemBg: "hsla(0,0%,100%,0.1)",
+  borderPrimary: "hsla(0,0%,100%,0.1)",
 };
 
 export const zmaTheme = {
@@ -144,6 +149,7 @@ export const zmaTheme = {
   scrollBg: "linear-gradient(117deg,#5a4be7,#c86dd7 102%)",
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
   boxItemBg: "hsla(0,0%,100%,0.1)",
+  borderPrimary: "hsla(0,0%,100%,0.1)",
 };
 
 export const eiffelTheme = {
@@ -167,6 +173,7 @@ export const eiffelTheme = {
   scrollBg: "linear-gradient(117deg,#5a4be7,#c86dd7 102%)",
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
   boxItemBg: "hsla(0,0%,100%,0.1)",
+  borderPrimary: "hsla(0,0%,100%,0.1)",
 };
 export const iuTheme = {
   bgImage: `${IU}`,
@@ -189,6 +196,7 @@ export const iuTheme = {
   scrollBg: "rgb(143, 143, 143)",
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
   boxItemBg: "hsla(0,0%,100%,0.3)",
+  borderPrimary: "hsla(0,0%,100%,0.1)",
 };
 export const jiChangWookTheme = {
   bgImage: `${jiChangWook}`,
@@ -211,6 +219,7 @@ export const jiChangWookTheme = {
   scrollBg: "rgb(143, 143, 143)",
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
   boxItemBg: "hsla(0,0%,100%,0.3)",
+  borderPrimary: "hsla(0,0%,100%,0.1)",
 };
 export const lisaTheme = {
   bgImage: `${lisa}`,
@@ -233,6 +242,7 @@ export const lisaTheme = {
   scrollBg: "rgb(143, 143, 143)",
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
   boxItemBg: "hsla(0,0%,100%,0.3)",
+  borderPrimary: "hsla(0,0%,100%,0.1)",
 };
 export const jennieTheme = {
   bgImage: `${jennie}`,
@@ -255,6 +265,7 @@ export const jennieTheme = {
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
   boxItemBg: "hsla(0,0%,100%,0.3)",
   mainBoxShadow: "rgba(66,66,66,0.4)",
+  borderPrimary: "hsla(0,0%,100%,0.1)",
 };
 export const jisooTheme = {
   bgImage: `${jisoo}`,
@@ -278,6 +289,7 @@ export const jisooTheme = {
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
   boxItemBg: "#fff",
   mainBoxShadow: "rgba(66,66,66,0.4)",
+  borderPrimary: "hsla(0,0%,100%,0.1)",
 };
 export const roseTheme = {
   bgImage: `${rose}`,
@@ -301,6 +313,7 @@ export const roseTheme = {
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
   boxItemBg: "hsla(0,0%,100%,0.1)",
   mainBoxShadow: "rgba(66,66,66,0.4)",
+  borderPrimary: "hsla(0,0%,100%,0.1)",
 };
 export const darkTheme = {
   bgImage: "",
@@ -324,6 +337,7 @@ export const darkTheme = {
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
   boxItemBg: "hsla(0,0%,100%,0.1)",
   mainBoxShadow: "rgba(66,66,66,0.4)",
+  borderPrimary: "hsla(0,0%,100%,0.1)",
 };
 // Tím
 export const purpleTheme = {
@@ -347,6 +361,7 @@ export const purpleTheme = {
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
   boxItemBg: "hsla(0,0%,100%,0.1)",
   mainBoxShadow: "rgba(66,66,66,0.4)",
+  borderPrimary: "hsla(0,0%,100%,0.1)",
 };
 // Xanh đậm
 export const blueTheme = {
@@ -370,6 +385,7 @@ export const blueTheme = {
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
   boxItemBg: "hsla(0,0%,100%,0.1)",
   mainBoxShadow: "rgba(66,66,66,0.4)",
+  borderPrimary: "hsla(0,0%,100%,0.1)",
 };
 // xanh biển
 export const blueLightTheme = {
@@ -393,4 +409,5 @@ export const blueLightTheme = {
   darkAlpha50Bg: "rgba(0,0,0,0.5)",
   boxItemBg: "hsla(0,0%,100%,0.1)",
   mainBoxShadow: "rgba(66,66,66,0.4)",
+  borderPrimary: "hsla(0,0%,100%,0.1)",
 };

@@ -14,18 +14,14 @@ import Partner from "~/components/partner";
 import WrapperLayout from "~/components/wrapperLayout";
 import Loading from "~/utils/Loading";
 import { useDispatch } from "react-redux";
-import { setBgHeader } from "~/redux-toolkit/global/globalSlice";
 const Home = () => {
   const dispatch = useDispatch();
   const [pageNumber, setPageNumber] = useState(1);
   const [loading, setLoading] = useState(false);
   const [dataHome, setDataHome] = useState([]);
-  const containerElm = useRef(null);
 
   async function fetchDataHome(pageNumber) {
-    const res = await axios.get(
-      `https://server-zing.vercel.app/api/home/${pageNumber}`
-    );
+    const res = await axios.get(`https://server-zing.vercel.app/api/home/1`);
     console.log(res);
     if (!res.data) return null;
     const {
@@ -38,7 +34,7 @@ const Home = () => {
   }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    fetchDataHome(pageNumber);
+    // fetchDataHome(pageNumber);
   }, [pageNumber]);
   const loadMore = () => {
     setPageNumber((prevPage) => prevPage + 1);
@@ -97,9 +93,7 @@ const Home = () => {
           );
         }
       })}
-      {/* <button ref={pageEnd} onClick={loadMore} className="text-4xl text-white">
-        LoadMore
-      </button> */}
+
       {loading && <Loading ref={pageEnd} />}
     </WrapperLayout>
   );
