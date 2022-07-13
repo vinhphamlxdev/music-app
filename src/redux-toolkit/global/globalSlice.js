@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { darkTheme, lonDonTheme } from "~/themes/ThemeData";
+import { themes } from "~/themes/ThemeData";
+const { lonDonTheme } = themes;
 export const globalSlice = createSlice({
   name: "global",
   initialState: {
     isSticky: false,
-    theme: darkTheme,
+    theme: lonDonTheme,
     showModalTheme: false,
   },
   reducers: {
@@ -13,6 +14,7 @@ export const globalSlice = createSlice({
     },
     setThemeBg: (state, action) => {
       state.theme = action.payload;
+      // localStorage.setItem("THEME_KEY", JSON.stringify(state.theme));
     },
     setShowModalTheme: (state, action) => {
       state.showModalTheme = action.payload;
